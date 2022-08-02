@@ -35,6 +35,8 @@ bundle install && yarn install
 
 To start your site in development mode, run `bin/bridgetown start` and navigate to [localhost:4000](https://localhost:4000/)!
 
+Use the .envrc.sample as a starting place for your local environment.  You can get the API keys needed from 1password.
+
 Use a [theme](https://github.com/topics/bridgetown-theme) or add some [plugins](https://www.bridgetownrb.com/plugins/) to get started quickly.
 
 ### Commands
