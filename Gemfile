@@ -31,3 +31,17 @@ gem "bridgetown", "~> 1.1.0"
 # Puma is a Rack-compatible server used by Bridgetown
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.6"
+
+gem "actionview"
+
+gem "bridgetown-dato", git: "https://github.com/Paradem/bridgetown-dato.git",
+                       group: :bridgetown_plugins
+# gem "bridgetown-dato", path: '../bridgetown-dato', group: :bridgetown_plugins
+gem "dast_document", git: "https://github.com/Paradem/dast_document.git",
+                     group: :bridgetown_plugins
+# gem "dast_document", path: '../dast_document', group: :bridgetown_plugins
+
+gem "bridgetown-svg-inliner", "~> 1.0", group: :bridgetown_plugins
+
+gem "byebug"
+
