@@ -45,3 +45,5 @@ gem "bridgetown-svg-inliner", "~> 1.0", group: :bridgetown_plugins
 
 gem "byebug"
 
+
+gem "bridgetown-inline-svg", "~> 1.1", :group => :bridgetown_plugins

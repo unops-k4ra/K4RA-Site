@@ -1,11 +1,11 @@
-<header>
-  <img src="<%= relative_url '/images/logo.svg' %>" alt="Logo" />
-</header>
-
-<nav>
-  <ul>
-    <li><a href="<%= relative_url '/' %>">Home</a></li>
+<nav class="">
+  <ul class="text-white flex justify-end mr-10 space-x-4 items-center">
     <li><a href="<%= relative_url '/about' %>">About</a></li>
-    <li><a href="<%= relative_url '/posts' %>">Posts</a></li>
+    <li><a href="<%= relative_url '/eu-acquis' %>">EU Acquis</a></li>
+    <li><a class="flex items-center space-x-2" href="<%= relative_url '/beneficiaries' %>"><span>Beneficiaries</span> <%= svg '/images/menu_arrow.svg' %></a></li>
+    <li><a href="<%= relative_url '/updates' %>">Updates</a></li>
+    <li><a href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
+    <li class="text-gray-400">|</li>
+    <li><button class="bg-white text-gray-400 px-4 py-1 rounded">Login</button>
   </ul>
 </nav>

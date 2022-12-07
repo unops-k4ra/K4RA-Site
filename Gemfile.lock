@@ -63,6 +63,9 @@ GEM
       tilt (~> 2.0)
       webrick (~> 1.7)
       zeitwerk (~> 2.5)
+    bridgetown-inline-svg (1.1.1)
+      bridgetown (>= 0.15, < 2.0)
+      svg_optimizer (~> 0.2.5)
     bridgetown-paginate (1.1.0)
       bridgetown-core (= 1.1.0)
     bridgetown-svg-inliner (1.0.2)
@@ -169,6 +172,8 @@ GEM
       activesupport (>= 6.0)
       erubi (>= 1.10)
       tilt (~> 2.0)
+    svg_optimizer (0.2.6)
+      nokogiri
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.2.1)
@@ -189,6 +194,7 @@ DEPENDENCIES
   actionview
   bridgetown (~> 1.1.0)
   bridgetown-dato!
+  bridgetown-inline-svg (~> 1.1)
   bridgetown-svg-inliner (~> 1.0)
   byebug
   dast_document!
