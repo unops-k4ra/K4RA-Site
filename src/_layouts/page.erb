@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+<%= render Shared::Navbar.new(metadata: site.metadata, resource: resource, inverse: true) %>
 <h1><%= resource.data.title %></h1>
 
 <%= yield %>
