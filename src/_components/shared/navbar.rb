@@ -1,21 +1,32 @@
+# frozen_string_literal: true
+
 class Shared::Navbar < Bridgetown::Component
   def initialize(metadata:, resource:, inverse: false)
     @metadata, @resource, @inverse = metadata, resource, inverse
+    super()
+  end
+
+  def hide_svg
+    if @inverse
+      "hidden"
+    else
+      ""
+    end
   end
 
   def text_color
     if @inverse
-      "text-black"
+      "text-white"
     else
-      "text_white"
+      "text-text"
     end
   end
 
   def button_color
     if @inverse
-      "bg-gray-400 text-gray-800"
+      "bg-white text-kra-offwhite"
     else
-      "bg-white text-gray-400"
+      "bg-kra-darkblue-lightest text-kra-darkblue-lighter"
     end
   end
 end

@@ -4,7 +4,9 @@
     <%= render "head", metadata: site.metadata, title: resource.data.title %>
   </head>
   <body class="">
-    <%= yield %>
-    <%= render "footer", metadata: site.metadata %>
+    <div class="max-w-screen-2xl mx-auto">
+      <%= yield %>
+      <%= render "footer", metadata: site.metadata %>
+    </div>
   </body>
 </html>
