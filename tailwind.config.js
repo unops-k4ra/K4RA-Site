@@ -16,7 +16,7 @@ module.exports = {
           darkred: "#C8102E",
           offblack: "#333F44",
           offwhite: "#E6E9EF",
-          text: "#0092D1",
+          text: "#333F44",
           success: "#73BC76",
           button: "#0092D1",
           border: "#E6E9EF",
