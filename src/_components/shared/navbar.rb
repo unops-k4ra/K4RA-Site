@@ -21,12 +21,4 @@ class Shared::Navbar < Bridgetown::Component
       "text-text"
     end
   end
-
-  def button_color
-    if @inverse
-      "bg-white text-kra-offwhite"
-    else
-      "bg-kra-darkblue-lightest text-kra-darkblue-lighter"
-    end
-  end
 end

@@ -5,5 +5,9 @@ class Builders::Helpers < SiteBuilder
     helper :dato do
       site.data.dato
     end
+
+    helper :component_from_dato do |content|
+      content.item_type.api_key.camelize.constantize.new(resource: content)
+    end
   end
 end
