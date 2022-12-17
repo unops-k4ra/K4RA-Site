@@ -19,8 +19,8 @@ class Builders::LoadPages < SiteBuilder
           title page.title
           dato_object page
           meta_type :page
-          layout "page"
-          content "*** slug: #{page.slug} ***"
+          layout "top_nav"
+          content "<%= render Page.new(resource: resource.data.dato_object) %>"
         end
       end
 
@@ -29,7 +29,7 @@ class Builders::LoadPages < SiteBuilder
           title b.title
           dato_object b
           meta_type :page
-          layout "page"
+          layout "top_nav"
           content "*** slug: #{b.slug} ***"
         end
       end
