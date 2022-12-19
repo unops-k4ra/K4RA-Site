@@ -6,8 +6,13 @@ class Builders::Helpers < SiteBuilder
       site.data.dato
     end
 
-    helper :component_from_dato do |content|
-      content.item_type.api_key.camelize.constantize.new(resource: content)
+    helper :component_from_dato do |content, options = nil|
+      options ||= {}
+      if content.respond_to?(:item_type)
+        content.item_type.api_key.camelize.constantize.new(resource: content, options:)
+      else
+        content.component.new(resource: content, options:)
+      end
     end
   end
 end

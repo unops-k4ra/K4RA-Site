@@ -20,7 +20,7 @@ class Builders::LoadPages < SiteBuilder
           dato_object page
           meta_type :page
           layout "top_nav"
-          content "<%= render Page.new(resource: resource.data.dato_object) %>"
+          content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
         end
       end
 
@@ -31,6 +31,15 @@ class Builders::LoadPages < SiteBuilder
           meta_type :page
           layout "top_nav"
           content "*** slug: #{b.slug} ***"
+        end
+      end
+
+      site.data.dato.updates.each do |update|
+        add_resource :pages, "/#{update.slug}.erb" do
+          media_type "update"
+          dato_object update
+          layout "top_nav"
+          content "*** I'm an update***"
         end
       end
     end

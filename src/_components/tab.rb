@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BeneficiariesOther < Bridgetown::Component
+class Tab < Bridgetown::Component
   attr_reader :resource
 
   def initialize(resource:, options:)
