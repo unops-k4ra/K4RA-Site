@@ -1,0 +1,20 @@
+<div class="border-b border-kra-darkblue-lightest flex justify-center space-x-10 text-2xl">
+  <% resource.tabs.each_with_index do |tab, index| %>
+    <!--
+      I'm just hardcodeing the first one to be active for now to illustrate the styling
+      I will have to add some JS here to change something that will swap a field or something...
+      --!>
+
+      <div data-active="<%= index %>"
+           class="text-kra-darkblue-lighter
+                  data-[active=0]:border-b-2 data-[active=0]:border-kra-text
+                  data-[active=0]:text-kra-text">
+      <%= tab.title %>
+    </div>
+  <% end %>
+</div>
+
+<% resource.tabs.each do |tab| %>
+  <div id="tab_<%=tab.title.downcase.underscore %>">
+  <%= render component_from_dato(tab) %>
+<% end %>
