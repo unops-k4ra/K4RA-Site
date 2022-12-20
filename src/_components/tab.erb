@@ -1,1 +1,6 @@
-<div>The list of <%= resource.title %></div>
+<div class="ml-10">
+  The list of <%= resource.title %>
+  <% items.each do |item| %>
+    <%= item.title %>
+  <% end %>
+</div>

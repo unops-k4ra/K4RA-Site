@@ -1,16 +1,27 @@
+<div data-controller="tabbed-nav">
 <div class="border-b border-kra-darkblue-lightest flex justify-center space-x-10 text-2xl">
   <% tabs.each_with_index do |tab, index| %>
-      <div data-active="<%= index %>"
-           class="text-kra-darkblue-lighter
-                  data-[active=0]:border-b-2 data-[active=0]:border-kra-text
-                  data-[active=0]:text-kra-text">
+    <a
+       data-active="<%= index == 0 %>"
+       data-tabbed-nav-target="tab"
+       data-action="tabbed-nav#click"
+       data-name="<%= tab.title.downcase.underscore %>"
+       data-tabbed-nav-index-param="<%= index %>"
+       href="#<%= tab.title.downcase.underscore %>"
+       class="text-kra-darkblue-lighter
+              data-[active='true']:border-b-2 data-[active='true']:border-kra-text
+              data-[active='true']:text-kra-text">
       <%= tab.title %>
-    </div>
+    </a>
   <% end %>
 </div>
 
-<% tabs.each do |tab| %>
-  <div id="tab_<%=tab.title.downcase.underscore %>">
+<% tabs.each_with_index do |tab, index| %>
+  <div data-active="<%= index == 0 %>"
+       data-tabbed-nav-target="tabContent"
+       data-index="<%= index %>"
+       class="hidden data-[active='true']:block">
   <%= render component_from_dato(tab) %>
   </div>
 <% end %>
+</div>

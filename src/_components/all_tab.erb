@@ -1,3 +1,5 @@
 <div>
-  THE ALL TAB
+  <% resource.tabs.each do |tab| %>
+    <%= render component_from_dato(tab, {show: resource.show}) %>
+  <% end %>
 </div>

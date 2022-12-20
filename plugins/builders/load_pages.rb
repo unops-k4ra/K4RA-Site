@@ -9,7 +9,7 @@ class Builders::LoadPages < SiteBuilder
       add_resource :pages, "/index.erb" do
         title index.title
         dato_object index
-        meta_type :page
+        meta_type "page"
         layout "default"
         content "<%= render Index.new(metadata: site.metadata, resource: resource) %>"
       end
@@ -18,7 +18,7 @@ class Builders::LoadPages < SiteBuilder
         add_resource :pages, "/#{page.slug}.erb" do
           title page.title
           dato_object page
-          meta_type :page
+          meta_type "page"
           layout "top_nav"
           content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
         end
@@ -28,7 +28,7 @@ class Builders::LoadPages < SiteBuilder
         add_resource :pages, "/#{b.slug}.erb" do
           title b.title
           dato_object b
-          meta_type :page
+          meta_type "beneficiary"
           layout "top_nav"
           content "*** slug: #{b.slug} ***"
         end
@@ -36,7 +36,8 @@ class Builders::LoadPages < SiteBuilder
 
       site.data.dato.updates.each do |update|
         add_resource :pages, "/#{update.slug}.erb" do
-          media_type "update"
+          title update.title
+          meta_type "update"
           dato_object update
           layout "top_nav"
           content "*** I'm an update***"
