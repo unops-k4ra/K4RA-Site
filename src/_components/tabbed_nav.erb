@@ -16,12 +16,14 @@
   <% end %>
 </div>
 
-<% tabs.each_with_index do |tab, index| %>
-  <div data-active="<%= index == 0 %>"
-       data-tabbed-nav-target="tabContent"
-       data-index="<%= index %>"
-       class="hidden data-[active='true']:block">
-  <%= render component_from_dato(tab) %>
-  </div>
-<% end %>
+<div class="m-auto w-1/2">
+  <% tabs.each_with_index do |tab, index| %>
+    <div data-active="<%= index == 0 %>"
+         data-tabbed-nav-target="tabContent"
+         data-index="<%= index %>"
+         class="hidden data-[active='true']:block">
+         <%= render component_from_dato(tab) %>
+    </div>
+  <% end %>
+</div>
 </div>

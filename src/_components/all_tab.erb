@@ -1,5 +1,3 @@
-<div>
   <% resource.tabs.each do |tab| %>
-    <%= render component_from_dato(tab, {show: resource.show}) %>
+    <%= render component_from_dato(tab, {all: true, show: resource.show}) %>
   <% end %>
-</div>
