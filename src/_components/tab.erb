@@ -1,0 +1,20 @@
+<div><%= resource.title %></div>
+<% items.each do |item| %>
+  <div class="flex space-x-2 items-center">
+    <div class="h-10 w-2" style="background-color: <%= resource.color.hex %>">&nbsp;</div>
+    <div class="flex flex-grow items-center border-b">
+      <div class="flex items-center flex-grow space-x-2">
+        <% if item.image? %>
+          <img class="h-10 w-10" src="<%= item.hero_image.url %>"/>
+        <% end %>
+        <span> <%= item.title %> </span>
+      </div>
+      <div class="flex-none"><%= item.date.year %></div>
+      <div class="flex-none">
+        <a href="<%= relative_url item.slug %>">
+          <%= svg "/images/chevron.svg", class: "h-[9px] text-kra-text -rotate-90" %>
+        </a>
+      </div>
+    </div>
+  </div>
+<% end %>

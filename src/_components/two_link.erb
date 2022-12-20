@@ -1,0 +1,12 @@
+<div class="flex mt-16 mx-14 space-x-8">
+  <% resource.pages.each do |page| %>
+    <div class="grid gap-4 grid-cols-1 w-1/2">
+      <div class="h-[303px] bg-cover" style="background-image: url('<%= page.small_hero&.url %>')"></div>
+      <h3 class="text-xl"> <%= page.title %> </h3>
+      <p> <%= page.abstract %> </p>
+      <div class="grid justify-items-end">
+        <a class="text-white bg-kra-button rounded px-4 py-2" href="<%= relative_url page.slug%>">Read More</a>
+      </div>
+    </div>
+  <% end %>
+</div>

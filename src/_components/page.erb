@@ -1,0 +1,12 @@
+<div class="m-auto grid content-center justify-items-center <%= height %> w-[1440px] bg-cover" style="background-image: url('<%= relative_url resource.hero&.url %>')">
+  <div class="grid grid-col-1 gap-4 justify-items-center w-1/2">
+    <h1 class="text-4xl"> <%= resource.title %> </h1>
+    <% if resource.abstract.present? %>
+      <hr class="m-auto border-none w-[68px] h-2 bg-kra-darkred"/>
+      <p > <%= resource.abstract %> <p>
+    <% end %>
+  </div>
+</div>
+<% resource.content.each do |content| %>
+  <%= render component_from_dato(content) %>
+<% end %>

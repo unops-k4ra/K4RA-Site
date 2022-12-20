@@ -3,13 +3,10 @@
   <head>
     <%= render "head", metadata: site.metadata, title: resource.data.title %>
   </head>
-  <body class="<%= resource.data.layout %> <%= resource.data.page_class %>">
-    <%= render Shared::Navbar.new(metadata: site.metadata, resource: resource) %>
-
-    <main>
+  <body class="">
+    <div class="max-w-screen-2xl mx-auto">
       <%= yield %>
-    </main>
-
-    <%= render "footer", metadata: site.metadata %>
+      <%= render "footer", metadata: site.metadata %>
+    </div>
   </body>
 </html>
