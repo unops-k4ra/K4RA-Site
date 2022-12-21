@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'screen-default': '1440px',
+      },
       colors: {
         kra: {
           blue: "#0092D1",

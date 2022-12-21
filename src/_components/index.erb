@@ -1,35 +1,32 @@
-<div class="relative pt-4 w-full h-[806px] bg-[url('/images/hero.png')] bg-cover" >
-  <%= render Shared::Navbar.new(metadata: metadata, resource: resource, inverse: true) %>
+<div class="relative pt-4 w-full lg:aspect-[9/5] bg-[url('/images/hero.png')] bg-cover flex flex-col justify-center items-center" >
+  <div class="absolute inset-x-0 top-0">
+    <%= render Shared::Navbar.new(metadata: metadata, resource: resource, inverse: true) %>
+  </div>
 
-  <div class="flex flex-col space-y-10 mt-32 px-4 sm:px-6 lg:px-8" >
-    <h1>
-      <%= svg "/images/logo.svg", class: "text-white" %>
-    </h1>
-    <div class="text-white text-2xl w-full md:w-3/4 xl:w-1/3"> <%= dato.home.abstract %></div>
+  <div class="relative z-10 w-full max-w-screen-xl px-4 mx-auto my-12 space-y-10 sm:px-6" >
+    <h1 class="max-w-[780px]"><%= svg "/images/logo.svg", class: "w-full h-auto text-white" %></h1>
+    <div class="max-w-[400px] text-xl leading-normal text-white "> <%= dato.home.abstract %></div>
     <div>
-      <a href="<%= relative_url "/about" %>" class="text-white rounded bg-kra-button px-4 py-2"> Learn More </a>
+      <a href="<%= relative_url "/about" %>" class="px-4 py-2 text-white rounded bg-kra-button"> Learn More </a>
     </div>
-    <div class="flex space-x-10">
+    <div class="flex pt-4 space-x-10">
       <%= svg "/images/norway_inverse.svg" %>
       <%= svg "/images/unops_inverse.svg" %>
     </div>
-
-    <%# This really looks bad.%>
-    <%# <%= svg "/images/kra_icon.svg", class: "absolute w-[503px] h-[503px] bottom-0 right-0" %1> %>
   </div>
-  <div class="absolute inset-x-0 bottom-0 h-10 flex items-end justify-center pb-2">
+
+  <div class="absolute inset-x-0 bottom-0 z-0 flex justify-end">
+    <%= svg "/images/kra_icon.svg", class: "w-1/3 h-full aspect-square" %>
+  </div>
+  <div class="absolute inset-x-0 bottom-0 flex items-end justify-center h-10 pb-6">
     <a href="#next">
       <%= svg "/images/chevron.svg", class: "text-white" %>
     </a>
   </div>
 </div>
 
-<div>
-
-</div>
-
-<div id="#next"></div>
-<div class="grid grid-col-1 gap-16">
+<div id="next"></div>
+<div class="grid gap-16 grid-col-1">
   <% dato.home.content.each do |content| %>
     <%= render component_from_dato(content) %>
   <% end %>
