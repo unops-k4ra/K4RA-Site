@@ -21,4 +21,13 @@ class Shared::Navbar < Bridgetown::Component
       "text-text"
     end
   end
+
+  def border_b
+    if @inverse
+      ""
+    else
+      "border-b"
+    end
+  end
+
 end

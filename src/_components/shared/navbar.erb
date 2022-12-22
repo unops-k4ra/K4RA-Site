@@ -1,47 +1,71 @@
-<nav class="border-b justify-between max-w-screen-xl px-4 mx-auto my-4 md:flex sm:px-6">
-  <div class="ml-10">
+<div class="<%= border_b %>  border-kra-darkblue-lighter">
+  <nav class="items-center justify-between h-[84px] max-w-screen-xl px-4 mx-auto sm:px-6 flex">
     <a href="<%= relative_url "/" %>">
-    <%= svg "/images/logo.svg", class: "#{hide_svg} w-[321px] h-[32px] text-black" %>
-      </a>
-  </div>
-  <div class="<%= text_color %> flex justify-end space-x-4 items-center">
-    <div><a href="<%= relative_url '/about' %>">About</a></div>
-    <div><a href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></div>
-    <div class="relative">
-      <div data-controller="dropdown" class="">
-        <button data-dropdown-target="trigger" type="button"
-                                               class="inline-flex items-center justify-center whitespace-nowrap"
-                                               >
-                                               <span class="mr-2">Beneficiaries</span>
-                                               <%= svg '/images/menu_arrow.svg' %>
+      <%= svg "/images/logo.svg", class: "#{hide_svg} aspect-[321/32] text-black max-w-[321px] w-full" %>
+    </a>
+    <div class="flex items-center justify-end space-x-4 ">
+      <ul class="hidden items-center justify-end space-x-4 lg:flex <%= text_color %> ">
+        <li><a href="<%= relative_url '/about' %>">About</a></li>
+        <li><a href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+        <li class="relative">
+          <div data-controller="dropdown" class="">
+            <button data-dropdown-target="trigger" type="button"
+                                                  class="inline-flex items-center justify-center whitespace-nowrap"
+                                                  >
+                                                  <span class="mr-2">Beneficiaries</span>
+                                                  <%= svg '/images/menu_arrow.svg' %>
+            </button>
+            <div data-dropdown-target="container"
+                id="beneficiaries-menu"
+                class="absolute left-0 z-40 hidden w-screen max-w-sm px-2 mt-3 sm:px-0"i
+                >
+            <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+              <div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
+                <div class="block p-3 -m-3">
+                  <ul class="space-y-8 text-sm">
+                    <% dato.beneficiaries.each do |b| %>
+                      <li>
+                        <a href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="<%= relative_url '/updates' %>">Updates</a></li>
+        <li><a href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
+        <li class="text-gray-400">|</li>
+      </ul>
+
+      <div data-controller="dropdown" class="flex items-center justify-end">
+        <a href="https://k4ra.admin.datocms.com"
+          class="px-4 py-2 rounded bg-kra-darkblue-lightest text-kra-darkblue-lighter"
+          >Login</a>
+        <button data-dropdown-target="trigger" class="px-4 lg:hidden self-stretch">
+          <%= svg "/images/menu.svg", class:"h-4 w-4" %>
         </button>
-        <div data-dropdown-target="container"
-             id="beneficiaries-menu"
-             class="absolute left-0 z-40 hidden w-screen max-w-sm px-2 mt-3 sm:px-0"i
-             >
-         <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-           <div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
-             <div class="block p-3 -m-3">
-               <ul class="space-y-8 text-sm">
-                 <% dato.beneficiaries.each do |b| %>
+        <ul data-dropdown-target="container" class="hidden absolute inset-x-0 z-40 block pt-4 pb-6 bg-white lg:hidden top-[84px] text-kra-darkblue border-y border-kra-darkblue-lighter">
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/about' %>">About</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+          <li class="px-4 pt-2">
+            <div data-controller="dropdown" class="">
+              <div class="font-bold text-kra-darkblue-light">Beneficiaries</div>
+              <ul class="pt-2">
+                <% dato.beneficiaries.each do |b| %>
                   <li>
-                    <a href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                    <a class="block px-4 py-2 href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
                   </li>
                 <% end %>
-               </ul>
-             </div>
-           </div>
-         </div>
-        </div>
+              </ul>
+            </div>
+          </li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/updates' %>">Updates</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
+        </ul>
       </div>
     </div>
-    <div><a href="<%= relative_url '/updates' %>">Updates</a></div>
-    <div><a href="<%= relative_url '/opportunities' %>">Opportunites</a></div>
-    <div class="text-gray-400">|</div>
-    <div>
-      <a href="https://k4ra.admin.datocms.com"
-         class="px-4 py-2 rounded bg-kra-darkblue-lightest text-kra-darkblue-lighter"
-         >Login</a>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>
