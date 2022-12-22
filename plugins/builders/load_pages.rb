@@ -41,6 +41,16 @@ class Builders::LoadPages < SiteBuilder
             layout page.layout
             content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
           end
+
+          site.data.dato.eu_acquis_chapters.each do |chapter|
+            add_resource :pages, "/#{page.slug}/#{chapter.slug}.erb" do
+              title chapter.title
+              meta_type "chapter"
+              dato_object chapter
+              layout "top_nav"
+              content "<%= render ChapterPage.new(resource: resource.data.dato_object, options: {}) %>"
+            end
+          end
         else
           add_resource :pages, "/#{page.slug}.erb" do
             title page.title
