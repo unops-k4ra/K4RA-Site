@@ -14,9 +14,21 @@
       <div class="flex py-4">
         <p class="text-sm text-kra-darkblue-lighter grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></p>
         <div class="flex flex-none space-x-4 text-sm">
-          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Terms of Use</a>
-          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Privacy Policy</a>
-          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Contact Us</a>
+          <a class="underline text-kra-darkblue-lighter
+                      underline-offset-4 hover:text-kra-darkblue "
+             href="<%= relative_url("terms-of-use")%>" >
+            Terms of Use
+          </a>
+          <a class="underline text-kra-darkblue-lighter
+                        underline-offset-4 hover:text-kra-darkblue"
+             href="<%= relative_url("privacy-policy")%>" >
+            Privacy Policy
+          </a>
+          <a class="underline text-kra-darkblue-lighter
+                          underline-offset-4 hover:text-kra-darkblue "
+             href="<%= relative_url("contact-us")%>" >
+            Contact Us
+          </a>
         </div>
       </div>
     </div>
