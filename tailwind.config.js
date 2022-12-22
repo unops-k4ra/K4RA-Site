@@ -7,12 +7,13 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        'screen-default': '1440px',
+        "screen-default": "1440px",
       },
       colors: {
         kra: {
           blue: "#0092D1",
           darkblue: "#00205B",
+          "darkblue-light": "#4D638C",
           "darkblue-lightest": "#E6E9EF",
           "darkblue-lighter": "#99A6BD",
           red: "#FF0000",
@@ -27,5 +28,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

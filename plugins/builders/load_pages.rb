@@ -33,12 +33,15 @@ class Builders::LoadPages < SiteBuilder
       end
 
       site.data.dato.beneficiaries.each do |b|
-        add_resource :pages, "/#{b.slug}.erb" do
+        add_resource :pages, "/beneficiaries/#{b.slug}.erb" do
           title b.title
           dato_object b
           meta_type "beneficiary"
           layout "top_nav"
-          content "*** slug: #{b.slug} ***"
+          content "<%= render Beneficiary.new(
+                                resource: resource.data.dato_object,
+                                options: {page: resource.data.dato_object })
+                  %>"
         end
       end
 
