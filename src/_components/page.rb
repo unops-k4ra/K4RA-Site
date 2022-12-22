@@ -15,4 +15,11 @@ class Page < Bridgetown::Component
       "h-[350px]"
     end
   end
+
+  def title_color
+    {
+      "black" => "text-black",
+      "white" => "text-white",
+    }.fetch(resource.title_color)
+  end
 end
