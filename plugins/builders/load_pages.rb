@@ -23,12 +23,32 @@ class Builders::LoadPages < SiteBuilder
       end
 
       site.data.dato.pages.each do |page|
-        add_resource :pages, "/#{page.slug}.erb" do
-          title page.title
-          dato_object page
-          meta_type "page"
-          layout "top_nav"
-          content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
+        case page.slug
+        when "eu-acquis"
+          add_resource :pages, "/#{page.slug}/chapters.erb" do
+            title page.title
+            dato_object page
+            active_page "chapters"
+            meta_type "eu-acquis"
+            layout page.layout
+            content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
+          end
+          add_resource :pages, "/#{page.slug}/clusters.erb" do
+            title page.title
+            dato_object page
+            active_page "clusters"
+            meta_type "eu-acquis"
+            layout page.layout
+            content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
+          end
+        else
+          add_resource :pages, "/#{page.slug}.erb" do
+            title page.title
+            dato_object page
+            meta_type "page"
+            layout "top_nav"
+            content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
+          end
         end
       end
 
