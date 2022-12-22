@@ -1,3 +1,6 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['VF Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
+      },
       maxWidth: {
         "screen-default": "1440px",
       },
