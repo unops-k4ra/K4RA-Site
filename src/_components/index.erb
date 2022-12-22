@@ -1,17 +1,6 @@
-
-
-
-<div class="relative pt-4 w-full lg:aspect-[9/5] flex flex-col justify-center items-center bg-gray-600" >
-
-  <% dato.home.hero.tap do |image| %>
-    <picture class="absolute inset-y-0 h-full min-w-full">
-      <source media="(min-width: 1024px)" srcset="<%= image.url %>?auto=compress,format&fit=crop&w=1440&h=800&fp-x=<%= image.focal_point&.dig("x") %>&fp-y=<%= image.focal_point&.dig("y") %>">
-      <source media="(min-width: 640px)" srcset="<%= image.url %>?auto=compress,format&fit=crop&w=1024&h=569&fp-x=<%= image.focal_point&.dig("x") %>&fp-y=<%= image.focal_point&.dig("y") %>">
-      <source media="(min-width: 399px)" srcset="<%= image.url %>?auto=compress,format&fit=crop&w=800&h=440&fp-x=<%= image.focal_point&.dig("x") %>&fp-y=<%= image.focal_point&.dig("y") %>">
-      <source media="(max-width: 400px)" srcset="<%= image.url %>?auto=compress,format&fit=crop&w=400&h=267&fp-x=<%= image.focal_point&.dig("x") %>&fp-y=<%= image.focal_point&.dig("y") %>">
-      <img src="<%= image.url %>?auto=compress,format&fit=crop&w=1024&h=569&fp-x=<%= image.focal_point&.dig("x") %>&fp-y=<%= image.focal_point&.dig("y") %>" alt="">
-    </picture>
-  <% end %>
+<div class="relative pt-4 w-full lg:aspect-[9/5] bg-cover flex flex-col justify-center items-center bg-gray-600"
+  style="background-image:url('<%= dato.home.hero.url %>?auto=compress,format&fit=crop&w=1440&h=800&fp-x=<%= dato.home.hero.focal_point&.dig("x") %>&fp-y=<%= dato.home.hero.focal_point&.dig("y") %>')"
+ >
 
   <div class="absolute inset-x-0 top-0">
     <%= render Shared::Navbar.new(metadata: metadata, resource: resource, inverse: true) %>
@@ -23,10 +12,10 @@
     <div>
       <a href="<%= relative_url "/about" %>" class="px-4 py-2 text-white rounded bg-kra-button"> Learn More </a>
     </div>
-    <div class="flex justify-start max-w-md pt-4 -mx-4 pr8">
+    <div class="flex justify-start max-w-md pt-4 pr-8 -mx-4">
       <% dato.global.inverse_logos.each do |image| %>
         <div class="px-4 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
-          <img src="<%= image.url %>"  />
+          <img class="w-full h-auto max-h-8" src="<%= image.url %>"  />
         </div>
       <% end %>
     </div>
@@ -43,7 +32,7 @@
 </div>
 
 <div id="next"></div>
-<div class="grid gap-16 grid-col-1">
+<div class="space-y-16">
   <% dato.home.content.each do |content| %>
     <%= render component_from_dato(content) %>
   <% end %>

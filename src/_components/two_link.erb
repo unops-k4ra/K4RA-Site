@@ -1,12 +1,14 @@
 
 <div class="max-w-screen-xl mx-auto mt-16 space-y-8 md:space-y-0 md:space-x-8 md:flex sm:px-6">
   <% resource.pages.each do |page| %>
-    <div class="grid grid-cols-1 gap-4 md:w-1/2">
-      <div class=" aspect-[2/1] bg-cover" style="background-image: url('<%= page.small_hero&.url %>')"></div>
-      <div class="px-4 md:px-0">
-        <h3 class="text-xl"> <%= page.title %> </h3>
-        <p> <%= page.abstract %> </p>
-        <div class="grid justify-items-end">
+    <div class="flex flex-col md:w-1/2 justify-items-start">
+      <div class="aspect-[2/1] bg-cover" style="background-image: url('<%= page.small_hero&.url %>')"></div>
+      <div class="flex flex-col justify-start px-4 pt-4 grow md:px-0">
+        <h3 class="text-xl"><%= page.title %></h3>
+        <div class="grow">
+          <p> <%= page.abstract %> </p>
+        </div>
+        <div class="grid self-end pt-4 justify-items-end ">
           <a class="px-4 py-2 text-white rounded bg-kra-button" href="<%= relative_url page.slug%>">Read More</a>
         </div>
       </div>

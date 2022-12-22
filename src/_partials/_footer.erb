@@ -1,22 +1,28 @@
-<footer class="mt-10">
-  <div class="flex flex-col justify-center border-y">
-    <div class="flex justify-between">
-      <%= svg "/images/logo.svg", class: "text-black" %>
-      <div class="flex justify-end">
-      <% dato.global.principal_logos.each do |image| %>
-        <img src="<%= image.url %>"/>
-      <% end %>
+<footer class="mt-10 ">
+  <div class="border-kra-darkblue-lightest border-y">
+    <div class="max-w-screen-xl px-4 mx-auto divide-y divide-kra-darkblue-lightest sm:px-6">
+      <div class="flex items-center justify-between py-8 gap-x-8 ">
+        <div class="max-w-sm"><%= svg "/images/logo.svg", class: "w-full max-h-8 h-auto text-black" %></div>
+        <div class="flex items-center justify-end max-w-md pt-4">
+          <% dato.global.principal_logos.each do |image| %>
+            <div class="px-4 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
+              <img class="w-full h-auto max-h-8" src="<%= image.url %>"  />
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <hr class="w-11/12"/>
-    <div class="flex">
-      <span class="grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></span>
-      <div class="flex-none flex">
-        <a href="">Terms of Use</a>
-        <a href="">Privacy Policy</a>
-        <a href="">Contact Us</a>
+      <div class="flex py-4">
+        <p class="text-sm text-kra-darkblue-lighter grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></p>
+        <div class="flex flex-none space-x-4 text-sm">
+          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Terms of Use</a>
+          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Privacy Policy</a>
+          <a class="underline text-kra-darkblue-lighter underline-offset-4 hover:text-kra-darkblue " href="">Contact Us</a>
+        </div>
       </div>
     </div>
   </div>
-  <div><%= dato.global.kosovo_declaration %></div>
+
+  <div class="max-w-screen-xl pt-6 pb-6 mx-auto">
+    <p class="text-sm italic text-kra-darkblue-lighter"><%= dato.global.kosovo_declaration %></p>
+  </div>
 </footer>

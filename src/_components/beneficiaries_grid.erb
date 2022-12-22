@@ -1,10 +1,10 @@
 <div class="grid content-center w-full max-w-4xl grid-cols-2 gap-0 px-4 m-auto sm:px-6 sm:grid-cols-3 justify-items-center">
   <% grid_items.each do |item| %>
-    <div class="relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
+    <a href="" class="relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
                   content-center text-white bg-cover"
          style="background-image: url('<%= item.hero.url %>')" >
       <div class="absolute inset-0 bg-black opacity-50"></div>
       <span class="z-10 text-center"><%= item.title %></span>
-    </div>
+    </a>
   <% end %>
 </div>
