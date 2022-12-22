@@ -1,35 +1,35 @@
 <footer class="mt-10 ">
   <div class="border-kra-darkblue-lightest border-y">
     <div class="max-w-screen-xl px-4 mx-auto divide-y divide-kra-darkblue-lightest sm:px-6">
-      <div class="flex items-center justify-between py-8 gap-x-8 ">
-        <div class="max-w-sm"><%= svg "/images/logo.svg", class: "w-full max-h-8 h-auto text-black" %></div>
+      <div class="md:flex items-center justify-between py-8 gap-x-8 ">
+        <div class="w-full px-4 md:px-0 md:max-w-sm mx-auto md:mx-0"><%= svg "/images/logo.svg", class: "w-full md:max-h-8 h-auto text-black" %></div>
         <div class="flex items-center justify-end max-w-md pt-4">
           <% dato.global.principal_logos.each do |image| %>
-            <div class="px-4 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
+            <div class="px-4 py-2 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
               <img class="w-full h-auto max-h-8" src="<%= image.url %>"  />
             </div>
           <% end %>
         </div>
       </div>
-      <div class="flex py-4">
-        <p class="text-sm text-kra-darkblue-lighter grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></p>
-        <div class="flex flex-none space-x-4 text-sm">
-          <a class="underline text-kra-darkblue-lighter
-                      underline-offset-4 hover:text-kra-darkblue "
-             href="<%= relative_url("terms-of-use")%>" >
-            Terms of Use
-          </a>
-          <a class="underline text-kra-darkblue-lighter
-                        underline-offset-4 hover:text-kra-darkblue"
-             href="<%= relative_url("privacy-policy")%>" >
-            Privacy Policy
-          </a>
-          <a class="underline text-kra-darkblue-lighter
-                          underline-offset-4 hover:text-kra-darkblue "
-             href="<%= relative_url("contact-us")%>" >
-            Contact Us
-          </a>
-        </div>
+    </div>
+    <div class="max-w-screen-xl mx-auto flex py-6 border-kra-darkblue-lightest border-t">
+      <p class="text-sm text-kra-darkblue-lighter grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></p>
+      <div class="flex flex-none space-x-4 text-sm">
+        <a class="underline text-kra-darkblue-lighter
+                    underline-offset-4 hover:text-kra-darkblue "
+           href="<%= relative_url("terms-of-use")%>" >
+          Terms of Use
+        </a>
+        <a class="underline text-kra-darkblue-lighter
+                      underline-offset-4 hover:text-kra-darkblue"
+           href="<%= relative_url("privacy-policy")%>" >
+          Privacy Policy
+        </a>
+        <a class="underline text-kra-darkblue-lighter
+                        underline-offset-4 hover:text-kra-darkblue "
+           href="<%= relative_url("contact-us")%>" >
+          Contact Us
+        </a>
       </div>
     </div>
   </div>

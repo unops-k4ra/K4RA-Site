@@ -18,7 +18,14 @@ module.exports = {
       },
       colors: {
         kra: {
-          blue: "#0092D1",
+          blue: {
+            50:      '#E6F4FA',
+            100:     '#99D3ED',
+            300:     '#4DB3DF',
+            DEFAULT: '#0092D1',
+            700:     '#006692',
+            900:     '#003A54',
+          },
           darkblue: "#00205B",
           "darkblue-light": "#4D638C",
           "darkblue-lightest": "#E6E9EF",
