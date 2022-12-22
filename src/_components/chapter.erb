@@ -1,0 +1,17 @@
+<div class="<%= index % 7 == 0 ? "col-start-2" : "" %>
+   border-t-2
+   flex flex-col h-32
+   border-t-3
+   border-kra-darkblue-lighter
+   pt-2
+   text-kra-darkblue-lighter
+   "
+     >
+     <span class="text-sm">
+       Chapter <%= chapter.chapter_number %>
+     </span>
+     <a class="font-bold"
+        href="<%= relative_url "/eu_acquis/#{chapter.slug}"%>">
+        <%= chapter.title %>
+     </a>
+</div>
