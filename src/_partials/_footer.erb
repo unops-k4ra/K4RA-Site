@@ -1,3 +1,22 @@
-<footer>
-  Contact me at <a href="mailto:<%= metadata.email %>"><%= metadata.email %></a>
+<footer class="mt-10">
+  <div class="flex flex-col justify-center border-y">
+    <div class="flex justify-between">
+      <%= svg "/images/logo.svg", class: "text-black" %>
+      <div class="flex justify-end">
+      <% dato.global.principal_logos.each do |image| %>
+        <img src="<%= image.url %>"/>
+      <% end %>
+      </div>
+    </div>
+    <hr class="w-11/12"/>
+    <div class="flex">
+      <span class="grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></span>
+      <div class="flex-none flex">
+        <a href="">Terms of Use</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div><%= dato.global.kosovo_declaration %></div>
 </footer>
