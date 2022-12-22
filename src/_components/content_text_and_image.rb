@@ -10,9 +10,9 @@ class ContentTextAndImage < Bridgetown::Component
 
   def reverse_image?
     if @resource.image_position
-      ""
+      "md:[&>div:first-child]:pr-20"
     else
-      "[&:first-child]:pl-20 flex-row-reverse"
+      "md:[&>div:first-child]:pl-20 flex-row-reverse"
     end
   end
 end

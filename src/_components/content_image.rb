@@ -7,4 +7,12 @@ class ContentImage < Bridgetown::Component
     @resource, @options = resource, options
     super()
   end
+
+  def align()
+    {
+      "left" => "justify-start",
+      "center" => "justify-center",
+      "right" => "justify-end",
+    }.fetch(resource.align)
+  end
 end

@@ -1,13 +1,22 @@
-<div class="m-auto grid content-center justify-items-center <%= height %> w-[1440px] bg-cover"
-     style="background-image: url('<%= relative_url resource.hero&.url %>')">
-  <div class="grid grid-col-1 gap-4 justify-items-center w-1/2">
-    <h1 class="text-4xl"> <%= resource.title %> </h1>
-    <% if resource.abstract.present? %>
+<div class="grid content-center w-full m-auto bg-cover justify-items-center aspect-[1440/350] <%= title_color %>"
+  style="background-image: url('<%= relative_url resource.hero&.url %>?auto=compress,format&fit=crop&w=1440&h=350&fp-x=<%= resource.hero&.focal_point&.dig("x") %>&fp-y=<%= resource.hero&.focal_point&.dig("y") %>')
+  ">
+  <div class="grid max-w-3xl gap-4 text-center grid-col-1 justify-items-center ">
+    <h1 class="text-4xl font-bold"> <%= resource.title %> </h1>
+  <% if resource.abstract_position == "inside_header" %>
       <hr class="m-auto border-none w-[68px] h-2 bg-kra-darkred"/>
-      <p > <%= resource.abstract %> <p>
+      <p> <%= resource.abstract %> <p>
     <% end %>
   </div>
 </div>
+
+<% if resource.abstract_position == "below_header" %>
+  <div class="max-w-screen-lg px-4 py-12 mx-auto text-xl leading-normal text-center sm:px-6 text-kra-offblack ">
+    <p><%= resource.abstract %> <p>
+  </div>
+<% end %>
+
+
 <% resource.content.each do |content| %>
   <%= render component_from_dato(content, {page: resource}) %>
 <% end %>
