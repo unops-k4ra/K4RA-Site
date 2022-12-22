@@ -3,7 +3,7 @@
 require "ostruct"
 
 class TabbedNav < Bridgetown::Component
-  attr_reader :resource
+  attr_reader :resource, :options
 
   AllTabData = Struct.new("AllTabData", :title, :tabs, :show, :component)
 

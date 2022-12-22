@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Tab < Bridgetown::Component
-  attr_reader :resource, :site
+  attr_reader :resource, :site, :options
 
   class TabPresenter
     attr_reader :item

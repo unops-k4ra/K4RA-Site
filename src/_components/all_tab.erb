@@ -1,3 +1,16 @@
-  <% resource.tabs.each do |tab| %>
-    <%= render component_from_dato(tab, {all: true, show: resource.show}) %>
+  <% resource.tabs.each_with_index do |tab, index| %>
+    <div class="flex flex-col mt-6 [&:first-child]:mt-0">
+    <%= render component_from_dato(tab, options.merge({all: true, show: resource.show})) %>
+
+    <div class="flex justify-center mt-6">
+      <a class="border-2 px-4 py-2 border-kra-blue"
+         href="<%= relative_url(current_page.slug + "#"+tab.title.downcase.underscore)%>"i
+         data-action="tabbed-nav#click"
+         data-tabbed-nav-index-param="<%= index + 1 %>"
+         >
+         Show <%= tab.title.downcase %>
+      </a>
+    </div>
+    </div>
+
   <% end %>
