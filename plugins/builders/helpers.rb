@@ -14,5 +14,10 @@ class Builders::Helpers < SiteBuilder
         content.component.new(resource: content, options:)
       end
     end
+
+    helper :tab_component do |content, options = nil|
+      options ||= {}
+      content.basename_without_ext.camelize.constantize.new(resource: content, options:)
+    end
   end
 end
