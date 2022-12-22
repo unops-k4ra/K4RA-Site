@@ -34,12 +34,15 @@
             <span>
               <%= res.title %>
             </span>
-            <div>
-              <% res.keywords.each do |keyword| %>
+            <div class="flex space-x-2">
+              <% res.beneficiary.each do |beneficiary| %>
                 <span class="rounded px-2 py-1 text-sm bg-kra-darkblue-lightest text-kra-darkblue-light">
-                  <%= keyword.title %>
+                  <%= beneficiary.iso3_code%>
                 </span>
               <% end %>
+              <span>
+                <%= render resource_type(res)%>
+              </span>
             </div>
           </div>
         <% end %>

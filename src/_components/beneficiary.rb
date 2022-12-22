@@ -15,4 +15,13 @@ class Beneficiary < Bridgetown::Component
       "h-[350px]"
     end
   end
+
+  def resource_type(res)
+    case res.resource.first.resources.first.item_type.api_key
+    when "resource_link"
+      ExternalLink.new(resource: res, options:)
+    when "resource_file"
+      FileLink.new(resource: res, options:)
+    end
+  end
 end
