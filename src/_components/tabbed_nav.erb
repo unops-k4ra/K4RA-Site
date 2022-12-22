@@ -1,29 +1,29 @@
 <div data-controller="tabbed-nav">
-<div class="border-b border-kra-darkblue-lightest flex justify-center space-x-10 text-2xl">
-  <% tabs.each_with_index do |tab, index| %>
-    <a
-       data-active="<%= index == 0 %>"
-       data-tabbed-nav-target="tab"
-       data-action="tabbed-nav#click"
-       data-name="<%= tab.title.downcase.underscore %>"
-       data-tabbed-nav-index-param="<%= index %>"
-       href="#<%= tab.title.downcase.underscore %>"
-       class="text-kra-darkblue-lighter
-              data-[active='true']:border-b-2 data-[active='true']:border-kra-text
-              data-[active='true']:text-kra-text">
-      <%= tab.title %>
-    </a>
-  <% end %>
-</div>
+  <div class="border-b border-kra-darkblue-lightest mb-8 flex justify-center space-x-10 text-2xl">
+    <% tabs.each_with_index do |tab, index| %>
+      <a
+          data-active="<%= index == 0 %>"
+          data-tabbed-nav-target="tab"
+          data-action="tabbed-nav#click"
+          data-name="<%= tab.title.downcase.underscore %>"
+          data-tabbed-nav-index-param="<%= index %>"
+          href="#<%= tab.title.downcase.underscore %>"
+          class="text-kra-darkblue-lighter
+                 data-[active='true']:border-b-2 data-[active='true']:border-kra-text
+                 data-[active='true']:text-kra-text">
+                 <%= tab.title %>
+      </a>
+    <% end %>
+  </div>
 
-<div class="m-auto w-1/2">
-  <% tabs.each_with_index do |tab, index| %>
-    <div data-active="<%= index == 0 %>"
-         data-tabbed-nav-target="tabContent"
-         data-index="<%= index %>"
-         class="hidden data-[active='true']:block">
-         <%= render component_from_dato(tab) %>
-    </div>
-  <% end %>
-</div>
+  <div class="m-auto w-1/2">
+    <% tabs.each_with_index do |tab, index| %>
+      <div data-active="<%= index == 0 %>"
+           data-tabbed-nav-target="tabContent"
+           data-index="<%= index %>"
+           class="hidden data-[active='true']:block">
+           <%= render component_from_dato(tab, options) %>
+      </div>
+    <% end %>
+  </div>
 </div>

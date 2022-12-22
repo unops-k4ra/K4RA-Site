@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
-  static targets = ["tabContent", "tab"];
+  static targets = ["tabContent", "tab", "showButton"];
 
   connect() {
     this.tabs = this.tabTargets.map((tab) => `#${tab.dataset.name}`);

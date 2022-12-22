@@ -5,7 +5,6 @@ require "byebug"
 # rubocop:disable Metrics/MethodLength, Metrics/AbcSize, Metrics/BlockLength
 class Builders::LoadPages < SiteBuilder
   def closed_opportunity?(opportunity)
-    debugger
     return false if opportunity.closed_date.nil?
 
     opportunity.closed_date < Time.now
