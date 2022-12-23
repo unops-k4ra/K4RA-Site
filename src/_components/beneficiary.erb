@@ -36,9 +36,9 @@
     <div class="mt-8 pb-4 px-4 border-b flex">
       <div class="font-bold">Resources on this page</div>
     </div>
-    <div class="flex items-center justify-between border-b p-4">
-      <div>
-        <% resource.resources.each do |res| %>
+    <% resource.resources.each do |res| %>
+      <div class="flex items-center justify-between border-b p-4">
+        <div>
           <div class="flex flex-col space-y-2">
             <span>
               <%= res.title %>
@@ -54,12 +54,13 @@
               </span>
             </div>
           </div>
-        <% end %>
+        </div>
+        <div class="flex">
+          <a href="<%= relative_url "/resources/#{res.slug}" %>">
+          <%= svg "/images/arrow.svg", class:"h-4 w-4 text-kra-darkblue-lighter" %>
+          </a>
+        </div>
       </div>
-      <div class="flex">
-        <%= svg "/images/arrow.svg", class:"h-4 w-4 text-kra-darkblue-lighter" %>
-      </div>
-    </div>
-
+    <% end %>
   </div>
 </div>

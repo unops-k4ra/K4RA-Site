@@ -104,6 +104,19 @@ class Builders::LoadPages < SiteBuilder
           content "*** I'm an opportunity***"
         end
       end
+
+      site.data.dato.resources.each do |resource|
+        add_resource :pages, "/resources/#{resource.slug}.erb" do
+          title resource.title
+          media_type "resource"
+          dato_object resource
+          layout "top_nav"
+          content "<%= render Resource.new(
+                                resource: resource.data.dato_object,
+                                options: nil)
+                  %>"
+        end
+      end
     end
   end
 end
