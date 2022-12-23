@@ -1,13 +1,13 @@
-<div>
+<div class="divide-y kra-darkblue-lightest">
   <% clusters.each do |cluster| %>
-    <div>
-      <div class="text-2xl text-kra-blue font-bold mb-4 text-center">
+    <div class="py-12 ">
+      <div class="pb-8 text-3xl font-bold text-center text-kra-blue font-display ">
         <%= cluster.title %>
       </div>
 
-    <%= render Chapters.new(
-      resource: nil,
-      options: {
+      <%= render Chapters.new(
+        resource: nil,
+        options: {
         chapters: cluster.eu_acquis_chapters
       }) %>
     </div>
