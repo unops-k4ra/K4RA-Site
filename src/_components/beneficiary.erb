@@ -33,19 +33,19 @@
     </div>
   </div>
   <div class="sm:col-start-8 sm:col-span-5 md:col-start-9 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l border-t sm:border-t-0">
-    <div class="mt-8 pb-4 px-4 border-b flex">
+    <div class="mt-8 pb-4 px-6 border-b flex">
       <div class="font-bold">Resources on this page</div>
     </div>
     <% resource.resources.each do |res| %>
-      <div class="flex items-center justify-between border-b p-4">
-        <div>
-          <div class="flex flex-col space-y-2">
+      <div class="flex border-b text-sm">
+        <div class="flex grow">
+          <div class="grow space-y-2 py-4 px-6">
             <span>
               <%= res.title %>
             </span>
             <div class="flex space-x-2">
               <% res.beneficiary.each do |beneficiary| %>
-                <span class="rounded px-2 py-1 text-sm bg-kra-darkblue-lightest text-kra-darkblue-light">
+                <span class="rounded px-2 py-1 text-xs bg-kra-darkblue-lightest text-kra-darkblue-light">
                   <%= beneficiary.iso3_code%>
                 </span>
               <% end %>
@@ -54,11 +54,11 @@
               </span>
             </div>
           </div>
-        </div>
-        <div class="flex">
-          <a href="<%= relative_url "/resources/#{res.slug}" %>">
-          <%= svg "/images/arrow.svg", class:"h-4 w-4 text-kra-darkblue-lighter" %>
-          </a>
+          <div class="flex bg-white hover:bg-kra-darkblue-lighter text-kra-darkblue-lighter hover:text-white transition-all">
+            <a class="p-4 place-self-center href="<%= relative_url "/resources/#{res.slug}" %>">
+            <%= svg "/images/arrow.svg", class:"h-4 w-4  " %>
+            </a>
+          </div>
         </div>
       </div>
     <% end %>

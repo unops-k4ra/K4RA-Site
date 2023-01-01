@@ -20,9 +20,9 @@
                 class="absolute left-0 z-40 hidden w-screen max-w-sm px-2 mt-3 sm:px-0"i
                 >
             <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-              <div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
+              <div class="relative grid gap-6 px-4 py-3 bg-white sm:gap-6 sm:p-6">
                 <div class="block p-3 -m-3">
-                  <ul class="space-y-8 text-sm">
+                  <ul class="space-y-4 text-sm">
                     <% dato.beneficiaries.each do |b| %>
                       <li>
                         <a href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
@@ -56,7 +56,7 @@
               <ul class="pt-2">
                 <% dato.beneficiaries.each do |b| %>
                   <li>
-                    <a class="block px-4 py-2 href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                    <a class="block px-4 py-2 italic" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
                   </li>
                 <% end %>
               </ul>

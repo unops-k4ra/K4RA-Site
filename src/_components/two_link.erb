@@ -1,9 +1,9 @@
 
-<div class="max-w-screen-xl mx-auto mt-16 space-y-8 md:space-y-0 md:space-x-8 md:flex sm:px-6">
+<div class="max-w-screen-xl mx-auto mt-16 space-y-8 md:space-y-0 md:space-x-8 md:flex px-4 sm:px-6">
   <% resource.pages.each do |page| %>
     <div class="flex flex-col md:w-1/2 justify-items-start">
       <div class="aspect-[2/1] bg-cover" style="background-image: url('<%= page.small_hero&.url %>')"></div>
-      <div class="flex flex-col justify-start px-4 pt-4 grow md:px-0">
+      <div class="flex flex-col justify-start pt-4 grow ">
         <h3 class="text-xl"><%= page.title %></h3>
         <div class="grow">
           <p> <%= page.abstract %> </p>
