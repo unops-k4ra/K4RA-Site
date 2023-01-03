@@ -2,15 +2,34 @@
 layout: top_nav
 ---
 <%= yield %>
-<div class="pt-8">
-  <div class="flex justify-center mb-8 space-x-10 text-2xl border-b border-kra-darkblue-lightest">
+<div class="pt-4">
+  <div class="
+    border-b
+    border-kra-darkblue-lightest
+
+    mb-8
+    flex
+    justify-center
+    overflow-x-auto
+
+    space-x-4
+    md:space-x-8
+    lg:space-x-10
+
+    text-sm
+    md:text-lg
+    lg:text-xl">
     <% ["Clusters", "Chapters"].each_with_index do |tab, index| %>
       <a
           data-active="<%= tab.downcase == resource.basename_without_ext %>"
           href="/eu-acquis/<%=tab.downcase%>"
-          class="text-kra-darkblue-lighter border-b-4 border-transparent py-4 hover:text-kra-darkblue-light hover:border-kra-darkblue-lighter
-                 data-[active='true']:border-kra-text
-                 data-[active='true']:text-kra-text data-[active='true']:font-bold">
+          class="
+            py-4
+                   text-kra-darkblue-lighter
+                   hover:text-kra-darkblue-light
+                   data-[active='true']:border-b-2
+                   data-[active='true']:border-kra-text
+                   data-[active='true']:text-kra-text">
                  <%= tab %>
       </a>
     <% end %>

@@ -5,8 +5,8 @@
     </a>
     <div class="flex items-center justify-end space-x-4 ">
       <ul class="hidden items-center justify-end space-x-4 lg:flex <%= text_color %> ">
-        <li><a href="<%= relative_url '/about' %>">About</a></li>
-        <li><a href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>">About</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
         <li class="relative">
           <div data-controller="dropdown" class="">
             <button data-dropdown-target="trigger" type="button"
@@ -24,8 +24,8 @@
                 <div class="block p-3 -m-3">
                   <ul class="space-y-4 text-sm">
                     <% dato.beneficiaries.each do |b| %>
-                      <li>
-                        <a href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                      <li class="border-b pb-4">
+                        <a class="hover:text-kra-blue" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
                       </li>
                     <% end %>
                   </ul>
@@ -35,14 +35,14 @@
             </div>
           </div>
         </li>
-        <li><a href="<%= relative_url '/updates' %>">Updates</a></li>
-        <li><a href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates' %>">Updates</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
         <li class="text-gray-400">|</li>
       </ul>
 
       <div data-controller="dropdown" class="flex items-center justify-end">
         <a href="https://k4ra.admin.datocms.com"
-          class="px-4 py-2 rounded bg-kra-darkblue-lightest text-kra-darkblue-lighter"
+          class="px-4 py-2 rounded bg-kra-darkblue-lightest hover:bg-kra-darkblue-lighter text-kra-darkblue-lighter hover:text-kra-text transition-colors"
           >Login</a>
         <button data-dropdown-target="trigger" class="px-4 lg:hidden self-stretch">
           <%= svg "/images/menu.svg", class:"h-4 w-4" %>
