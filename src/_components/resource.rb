@@ -16,4 +16,13 @@ class Resource < Bridgetown::Component
       FileLink.new(resource: res, options:)
     end
   end
+
+  def resource_action(res)
+    case res.resource.first.resources.first.item_type.api_key
+    when "resource_link"
+      ResourceAction.new(resource: res, options: { text: "Visit Link" })
+    when "resource_file"
+      ResourceAction.new(resource: res, options: { text: "Download" })
+    end
+  end
 end
