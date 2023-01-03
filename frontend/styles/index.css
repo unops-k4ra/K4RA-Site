@@ -8,6 +8,31 @@
 @tailwind utilities;
 
 
+@layer base {
+
+  /* Define your root color theme here using Tailwind named colors
+  /* - Use this in future iterations? Need to use scss.
+  ===================================================================*/
+
+  :root {
+    --color-bg:         theme('colors.white');
+    --color-well:       theme('colors.kra2.dblue.100');
+
+    --color-border:     theme('colors.kra2.dblue.300');
+
+    --color-primary:    theme('colors.kra2.neutral.700');
+    --color-secondary:  theme('colors.kra2.dblue.300');
+    --color-accent:     theme('colors.kra2.blue.DEFAULT');
+    --color-highlight:  theme('colors.kra2.red.DEFAULT');
+
+    --color-error:      theme('colors.kra2.red.DEFAULT');
+    --color-alert:      theme('colors.white');
+    --color-info:       theme('colors.kra2.blue.100');
+    --color-success:    theme('colors.kra2.success.DEFAULT');
+  }
+}
+
+
 /* open-sans-regular - latin */
 @font-face {
   font-family: 'Open Sans';
@@ -85,8 +110,3 @@
   font-style: italic;
   font-display: swap;
 }
-
-
-
-
-
