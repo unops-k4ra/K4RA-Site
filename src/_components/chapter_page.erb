@@ -17,7 +17,7 @@
       <div class="font-bold">Resources on this page</div>
     </div>
     <% resource.resources.each do |res| %>
-      <div class="flex border-b text-sm">
+      <a class="flex border-b text-sm group hover:bg-kra-darkblue-lightest" href="<%= relative_url "/resources/#{res.slug}" %>">
         <div class="flex grow">
           <div class="grow space-y-2 py-4 px-6">
             <span>
@@ -25,7 +25,7 @@
             </span>
             <div class="flex space-x-2">
               <% res.beneficiary.each do |beneficiary| %>
-                <span class="rounded px-2 py-1 text-xs bg-kra-darkblue-lightest text-kra-darkblue-light">
+                <span class="px-2 py-1 rounded border border-kra-darkblue-lightest group-hover:border-kra-darkblue-light bg-kra-darkblue-lightest text-xs text-kra-darkblue-light">
                   <%= beneficiary.iso3_code%>
                 </span>
               <% end %>
@@ -34,13 +34,13 @@
               </span>
             </div>
           </div>
-          <div class="flex bg-white hover:bg-kra-darkblue-lighter text-kra-darkblue-lighter hover:text-white transition-all">
-            <a class="p-4 place-self-center href="<%= relative_url "/resources/#{res.slug}" %>">
+          <div class="flex">
+            <div class="px-4 place-self-center group-hover:translate-x-2 transition-transform">
             <%= svg "/images/arrow.svg", class:"h-4 w-4  " %>
-            </a>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     <% end %>
   </div>
 </div>
