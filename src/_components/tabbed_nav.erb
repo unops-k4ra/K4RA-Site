@@ -1,5 +1,21 @@
 <div data-controller="tabbed-nav">
-  <div class="border-b border-kra-darkblue-lightest mb-8 flex justify-center space-x-10 text-lg lg:text-xl">
+  <div class="
+    border-b
+    border-kra-darkblue-lightest
+
+    mb-8
+    flex
+    justify-center
+    overflow-x-auto
+    
+    space-x-4
+    md:space-x-8
+    lg:space-x-10
+
+    text-sm
+    md:text-lg
+    lg:text-xl
+    ">
     <% tabs.each_with_index do |tab, index| %>
       <a
           data-active="<%= index == 0 %>"
@@ -8,8 +24,11 @@
           data-name="<%= tab.title.downcase.underscore %>"
           data-tabbed-nav-index-param="<%= index %>"
           href="#<%= tab.title.downcase.underscore %>"
-          class="text-kra-darkblue-lighter p-4
-                 data-[active='true']:border-b-2 data-[active='true']:border-kra-text
+          class="p-4
+                 text-kra-darkblue-lighter
+                 hover:text-kra-darkblue-light
+                 data-[active='true']:border-b-2
+                 data-[active='true']:border-kra-text
                  data-[active='true']:text-kra-text">
                  <%= tab.title %>
       </a>

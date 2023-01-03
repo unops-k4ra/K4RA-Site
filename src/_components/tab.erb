@@ -1,20 +1,28 @@
-<div class="border-b-4 border-kra-darkblue-lighter"><%= resource.title %></div>
+<div class="border-b-4 border-kra-darkblue-lighter pb-4 text-xl font-bold"><%= resource.title %></div>
 <% items.each do |item| %>
-  <div class="flex space-x-2 items-center">
-    <div class="h-10 w-2" style="background-color: <%= resource.color.hex %>">&nbsp;</div>
-    <div class="flex flex-grow items-center border-b">
+  <div class="flex items-center" style="border-left: 12px <%= resource.color.hex %> solid">
+    <a href="<%= relative_url item.slug %>" target="_blank" class="
+      group
+      flex flex-grow items-center
+      border-b py-4 pl-4
+      hover:bg-kra-darkblue-lightest
+      transition-colors
+      ">
       <div class="flex items-center flex-grow space-x-2">
+        <div class="h-16"></div>
         <% if item.image? %>
-          <img class="h-10 w-10" src="<%= item.hero_image.url %>"/>
+          <img class="h-16 w-16 mr-8" src="<%= item.hero_image.url %>"/>
         <% end %>
-        <span> <%= item.title %> </span>
+        <span class="text-sm"><%= item.title %></span>
       </div>
-      <div class="flex-none"><%= item.date.year %></div>
-      <div class="flex-none">
-        <a href="<%= relative_url item.slug %>">
-          <%= svg "/images/chevron.svg", class: "h-[9px] text-kra-text -rotate-90" %>
-        </a>
-      </div>
-    </div>
+      <div class="
+        flex-none
+        py-2 px-4 rounded
+        border border-kra-darkblue-lightest group-hover:border-kra-darkblue-lighter
+        text-sm text-kra-darkblue-lighter
+        bg-kra-darkblue-lightest
+         "><%= item.date.year %></div>
+      <div class="flex-none"><%= svg "/images/chevron.svg", class: "h-[9px] text-kra-text -rotate-90" %></div>
+    </a>
   </div>
 <% end %>
