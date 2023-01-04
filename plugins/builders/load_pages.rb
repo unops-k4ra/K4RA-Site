@@ -94,7 +94,10 @@ class Builders::LoadPages < SiteBuilder
           meta_type "event"
           dato_object event
           layout "top_nav"
-          content "*** I'm an event***"
+          content "<%= render Event.new(
+                                resource: resource.data.dato_object,
+                                options: {})
+                  %>"
         end
       end
 
