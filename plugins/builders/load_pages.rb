@@ -81,7 +81,10 @@ class Builders::LoadPages < SiteBuilder
           meta_type "update"
           dato_object update
           layout "top_nav"
-          content "*** I'm an update***"
+          content "<%= render Update.new(
+                                resource: resource.data.dato_object,
+                                options: {})
+                  %>"
         end
       end
 
