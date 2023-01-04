@@ -18,7 +18,7 @@ class Shared::Navbar < Bridgetown::Component
     if @inverse
       "text-white"
     else
-      "text-text"
+      "text-kra-text"
     end
   end
 
@@ -29,5 +29,4 @@ class Shared::Navbar < Bridgetown::Component
       "border-b"
     end
   end
-
 end

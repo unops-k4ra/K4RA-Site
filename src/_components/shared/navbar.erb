@@ -10,7 +10,7 @@
         <li class="relative">
           <div data-controller="dropdown" class="">
             <button data-dropdown-target="trigger" type="button"
-                                                  class="inline-flex items-center justify-center whitespace-nowrap"
+                                                  class="hover:text-kra-blue inline-flex items-center justify-center whitespace-nowrap"
                                                   >
                                                   <span class="mr-2">Beneficiaries</span>
                                                   <%= svg '/images/menu_arrow.svg' %>
@@ -25,7 +25,7 @@
                   <ul class="space-y-4 text-sm">
                     <% dato.beneficiaries.each do |b| %>
                       <li class="border-b pb-4">
-                        <a class="hover:text-kra-blue" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                        <a class="text-kra-text hover:text-kra-blue" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
                       </li>
                     <% end %>
                   </ul>
@@ -51,7 +51,7 @@
           <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/about' %>">About</a></li>
           <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
           <li class="px-4 pt-2">
-            <div>
+            <div class="">
               <div class="font-bold text-kra-darkblue-light">Beneficiaries</div>
               <ul class="pt-2">
                 <% dato.beneficiaries.each do |b| %>
