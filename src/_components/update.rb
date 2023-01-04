@@ -7,4 +7,10 @@ class Update < Bridgetown::Component
     @resource, @options = resource, options
     super()
   end
+
+  def press_release?
+    return unless resource.press_release.nil?
+
+    "hidden"
+  end
 end
