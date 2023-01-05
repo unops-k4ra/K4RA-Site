@@ -1,17 +1,15 @@
-  <% resource.tabs.each_with_index do |tab, index| %>
+  <% tabs.each_with_index do |tab, index| %>
     <div class="flex flex-col mt-6 [&:first-child]:mt-0">
-      <%= render component_from_dato(tab, options.merge({all: true, show: resource.show})) %>
+      <%= render Tab.new(resource: tab, options: options.merge({all: true, show: show})) %>
 
       <div class="flex justify-center my-6">
         <a class="
           border-4 border-kra-blue hover:border-kra-blue-700
           px-6 py-3
           text-lg text-kra-blue hover:text-kra-text"
-           href="<%= relative_url(current_page.slug + "#"+tab.title.downcase.underscore)%>"i
-           data-action="tabbed-nav#click"
-           data-tabbed-nav-index-param="<%= index + 1 %>"
+           href="<%= relative_url(current_page.slug + "/"+tab.basename_without_ext.downcase.underscore)%>"i
            >
-           Show <%= tab.title.downcase %>
+           Show <%= tab.basename_without_ext.downcase %>
         </a>
       </div>
     </div>

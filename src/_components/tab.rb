@@ -38,7 +38,7 @@ class Tab < Bridgetown::Component
       .pages
       .resources
       .map(&:data)
-      .select { |p| p.meta_type == resource.data_source }
+      .select { |p| p.meta_type == resource.data.data_source }
     super()
   end
 

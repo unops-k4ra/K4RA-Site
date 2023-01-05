@@ -1,0 +1,22 @@
+<div class="">
+  <div class="grid max-w-screen-xl grid-cols-2 gap-4 place-content-center px-4 py-16 mx-auto sm:px-6">
+    <div class="flex flex-col col-span-2">
+      <span> <%= resource.title %> </span>
+      <span> <%= resource.abstract %> </span>
+    </div>
+
+    <% resource.entries.each do |entry| %>
+    <div class="flex flex-col">
+      <div>
+      <img class="aspect-square" src="<%= relative_url entry.image.url %>"/>
+      </div>
+      <h5 class="mb-8 text-2xl text-kra-text"><%= entry.title %></h5>
+      <p class="text-kra-text"><%= entry.text %></p>
+      <div class="mt-4">
+       <a class="px-4 py-2 text-white rounded bg-kra-button"
+          href="<%= relative_url entry.action %>"><%= entry.call_to_action_text %></a>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

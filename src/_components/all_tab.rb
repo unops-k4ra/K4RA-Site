@@ -9,6 +9,19 @@ class AllTab < Bridgetown::Component
   end
 
   def current_page
-    return options[:page] if options[:page].present?
+    resource.data.dato_object
+  end
+
+  def show
+    5
+  end
+
+  def tabs
+    site = Bridgetown::Current.site
+    @tabs ||= site.collections
+      .pages
+      .resources
+      .select { |p| p.data.meta_type == resource.data.meta_type }
+      .reject { |p| p.basename_without_ext.casecmp?("all") }
   end
 end

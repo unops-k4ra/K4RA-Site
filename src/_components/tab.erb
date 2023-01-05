@@ -1,6 +1,8 @@
-<div class="border-b-4 border-kra-darkblue-lighter pb-4 text-xl font-bold"><%= resource.title %></div>
+<div class="border-b-4 border-kra-darkblue-lighter pb-4 text-xl font-bold">
+  <%= resource.data.title.titleize %>
+</div>
 <% items.each do |item| %>
-  <div class="flex items-center" style="border-left: 12px <%= resource.color.hex %> solid">
+  <div class="flex items-center" style="border-left: 12px <%= resource.data.color %> solid">
     <a href="<%= relative_url item.slug %>" target="_blank" class="
       group
       flex flex-grow items-center
