@@ -1,13 +1,40 @@
 # frozen_string_literal: true
 
+require "dato/utils/seo_tags_builder"
+require "action_view/helpers/tag_helper"
+
 class Builders::Helpers < SiteBuilder
+  include ActionView::Helpers::TagHelper
+
   def build
     tab_helpers
     component_helpers
+    helper :meta_tags
 
     helper :dato do
       site.data.dato
     end
+  end
+
+  def meta_tags(resource)
+    dato_object = if resource.data.meta_type == :page
+                    resource.data.dato_object
+                  elsif resource.data.meta_type == :page
+                    resource.data.item
+                  elsif resource.basename_without_ext == "index"
+                    site.data.dato.home
+                  else
+                    return
+                  end
+
+    meta_tags = Dato::Utils::SeoTagsBuilder.new(dato_object, site.data.dato.site).meta_tags
+    meta_tags.map do |data|
+      if data[:content]
+        content_tag(data[:tag_name], data[:content], data[:attributes])
+      else
+        tag(data[:tag_name], data[:attributes])
+      end
+    end.join("\n").html_safe
   end
 
   def component_helpers
