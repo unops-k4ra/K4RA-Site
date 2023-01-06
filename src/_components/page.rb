@@ -22,4 +22,15 @@ class Page < Bridgetown::Component
       "white" => "text-white",
     }.fetch(resource.title_color)
   end
+
+  def background?
+    {
+      "black" => false,
+      "white" => true,
+    }.fetch(resource.title_color)
+  end
+
+  def disable_hero?
+    !resource.disable_hero
+  end
 end

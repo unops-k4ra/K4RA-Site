@@ -1,17 +1,7 @@
 <div class="max-w-screen-xl mx-auto" >
-  <!-- TODO: this title area should only appear on the homepage -->
-  <div class="flex flex-col col-span-2 text-center pb-8">
-
-    <!-- TODO: this section does not exist anywhere on DatoCMS -->
-    <h2 class="font-display font-bold text-3xl"> Beneficiary</h2>
-    <hr class="border-none w-[68px] h-1 bg-kra-red my-6 mx-auto"/>
-    <span class="prose mx-auto"> Some text goes here</span>
-  </div>
-
   <div class="grid content-center w-full max-w-4xl grid-cols-2 gap-0 px-4 m-auto sm:px-6 sm:grid-cols-3 justify-items-center">
     <% grid_items.each do |item| %>
-    <!--TODO Add link to beneficiary -->
-    <a href="/beneficiary/" class="group relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
+    <a href="/beneficiaries/<%= item.slug %>" class="group relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
                   content-center text-white bg-cover"
          style="background-image: url('<%= item.hero.url %>?auto=compress')" >
       <div class="absolute inset-0 bg-black opacity-30 group-hover:opacity-50 group-hover:bg-kra-blue transition-all"></div>
