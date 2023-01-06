@@ -3,13 +3,13 @@
 </div>
 <% items.each do |item| %>
   <div class="flex items-center" style="border-left: 12px <%= resource.data.color %> solid">
-    <a href="<%= relative_url item.slug %>" target="_blank" class="
-      group
-      flex flex-grow items-center
-      border-b py-4 pl-4
-      hover:bg-kra-darkblue-lightest
-      transition-colors
-      ">
+    <a href="<%= relative_url item.slug %>"
+       class="
+             group
+             flex flex-grow items-center
+             border-b py-4 pl-4
+             hover:bg-kra-darkblue-lightest
+             transition-colors">
       <div class="flex items-center flex-grow space-x-2">
         <div class="h-16"></div>
         <% if item.image? %>
