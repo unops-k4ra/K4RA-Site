@@ -168,7 +168,9 @@ class Builders::LoadPages < SiteBuilder
         meta_type meta_type
         dato_object opportunity
         layout "top_nav"
-        content "*** I'm an opportunity***"
+        content "<%= render Opportunity.new(
+          resource: resource.data.dato_object,
+          options: {}) %>"
       end
     end
   end
