@@ -1,46 +1,29 @@
+<!-- Set up standard grid -->
 <div class="sm:grid sm:grid-cols-12 gap-0 max-w-screen-xl mx-auto">
   <div class="px-8 sm:px-0 sm:col-start-2 sm:col-span-5 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-7 xl:col-start-1 xl:col-span-8">
-    <div class="mt-8 pb-4 mb-16 border-b flex">
-      <div class="font-bold">EU Acquis</div>
-      <!-- this span should be an svg to match the design -->
-      <span class="mx-4 text-kra-blue">&gt;</span>
+
+    <!-- TODO: Beneficiaries -->
+    <div class="mt-8 pb-4 mb-16 border-b flex gap-x-4">
+      <div class="font-bold text-xl">EU Acquis</div>
+      <span class="text-kra-blue">&gt;</span>
       <span class="text-kra-darkblue-lighter">Chapter <%= resource.chapter_number%></span>
     </div>
+
+    <!-- Body content -->
     <div class="max-w-full prose">
       <% resource.content.each do |content| %>
         <%= render component_from_dato(content, {page: resource}) %>
       <% end %>
     </div>
   </div>
+
+  <!-- Side column-->
   <div class="sm:col-start-8 sm:col-span-5 md:col-start-9 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l border-t sm:border-t-0">
     <div class="mt-8 pb-4 px-6 border-b flex">
       <div class="font-bold">Resources on this page</div>
     </div>
     <% resource.resources.each do |res| %>
-      <a class="flex border-b text-sm group hover:bg-kra-darkblue-lightest" href="<%= relative_url "/resources/#{res.slug}" %>">
-        <div class="flex grow">
-          <div class="grow space-y-2 py-4 px-6">
-            <span>
-              <%= res.title %>
-            </span>
-            <div class="flex space-x-2">
-              <% res.beneficiary.each do |beneficiary| %>
-                <span class="px-2 py-1 rounded border border-kra-darkblue-lightest group-hover:border-kra-darkblue-light bg-kra-darkblue-lightest text-xs text-kra-darkblue-light">
-                  <%= beneficiary.iso3_code%>
-                </span>
-              <% end %>
-              <span>
-                <%= render resource_type(res)%>
-              </span>
-            </div>
-          </div>
-          <div class="flex">
-            <div class="px-4 place-self-center group-hover:translate-x-2 transition-transform">
-            <%= svg "/images/arrow.svg", class:"h-4 w-4  " %>
-            </div>
-          </div>
-        </div>
-      </a>
+        <%= render ResourceCard.new(resource: res, options:) %>
     <% end %>
   </div>
 </div>

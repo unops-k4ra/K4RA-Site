@@ -1,22 +1,25 @@
-<div class="">
-  <div class="grid max-w-screen-xl grid-cols-2 gap-4 place-content-center px-4 py-16 mx-auto sm:px-6">
-    <div class="flex flex-col col-span-2">
-      <span> <%= resource.title %> </span>
-      <span> <%= resource.abstract %> </span>
-    </div>
+  <div class="bg-kra-offwhite py-12 px-4 sm:px-6">
+    <div class="max-w-screen-xl mx-auto" >
+      <div class="flex flex-col col-span-2 text-center">
+        <h2 class="font-display font-bold text-3xl"> <%= resource.title %> </h2>
+        <hr class="border-none w-[68px] h-1 bg-kra-red my-6 mx-auto"/>
+        <span class="prose mx-auto"> <%= resource.abstract %></span>
+      </div>
 
-    <% resource.entries.each do |entry| %>
-    <div class="flex flex-col">
-      <div>
-      <img class="aspect-square" src="<%= relative_url entry.image.url %>"/>
-      </div>
-      <h5 class="mb-8 text-2xl text-kra-text"><%= entry.title %></h5>
-      <p class="text-kra-text"><%= entry.text %></p>
-      <div class="mt-4">
-       <a class="px-4 py-2 text-white rounded bg-kra-button"
-          href="<%= relative_url entry.action %>"><%= entry.call_to_action_text %></a>
+      <div class="max-w-screen-xl mx-auto mt-16 gap-y-8 md:gap-x-8 md:flex md:flex-wrap px-4 sm:px-6 justify-center">
+        <% resource.entries.each do |entry| %>
+        <div class="flex flex-col basis-[30%]">
+          <img class="aspect-[2/1]" src="<%= relative_url entry.image.url %>?auto=compressformat&fit=crop&w=600&h=300"/>
+          <div class="flex flex-col justify-start pt-4 grow ">
+            <h3 class="font-display font-bold text-2xl py-2"><%= entry.title %></h3>
+            <div class="grow prose"><%= entry.text %></div>
+            <div class="flex pt-4">
+             <a class="px-4 py-2 text-white rounded bg-kra-button hover:bg-kra-blue-700 transition-colors"
+                href="<%= relative_url entry.action %>"><%= entry.call_to_action_text %></a>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
   </div>
-</div>

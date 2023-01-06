@@ -1,16 +1,19 @@
-<div class="" style="background-color: <%= resource.background_color.hex %>">
-  <div class="grid max-w-screen-xl grid-cols-2 gap-16 px-4 py-16 mx-auto sm:px-6">
+<div class="py-12" style="background-color: <%= resource.background_color.hex %>">
+
+  <div class="max-w-screen-xl grid mx-auto mt-16 gap-y-8 md:gap-y-0 md:gap-x-8 md:grid-cols-2 px-4 sm:px-6">
     <div class="flex flex-col">
-      <h5 class="mb-8 text-2xl text-white"><%= resource.page.title %></h5>
-      <p class="text-white"><%= resource.page.abstract %></p>
-      <div class="mt-4">
-       <a class="px-4 py-2 bg-white rounded text-kra-text"
+      <h5 class="font-display font-bold mb-8 text-2xl text-white"><%= resource.page.title %></h5>
+      <p class="text-white prose"><%= resource.page.abstract %></p>
+      <div class="mt-8">
+       <a class="px-4 py-2 bg-white rounded text-kra-text hover:bg-kra-blue-100 transition-colors"
         href="<%= relative_url resource.page.slug %>">Read More</a>
       </div>
     </div>
-    <div class="relative w-full px-12 bg-cover">
-      <img class="w-full aspect-[470/352]" src="<%= resource.page.hero.url %>">
+    <div class="relative w-full">
+      <img class="w-full aspect-[470/352]" src="<%= resource.page.hero.url %>?auto=compress">
+      <div class="absolute inset-0">
       <%= svg "/images/img-frame.svg", style: "color:#{resource.background_color.hex}" %>
+      </div>
     </div>
   </div>
 </div>

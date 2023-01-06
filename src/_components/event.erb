@@ -1,59 +1,82 @@
 <div class="max-w-screen-xl mx-auto">
-  <img src="<%= relative_url resource.hero_image&.url %>"/>
+  <img src="<%= relative_url resource.hero_image&.url %>?auto=compress,format&fit=crop&w=1440&h=350"/>
 </div>
+
+
+<!-- Set up standard grid -->
 <div class="sm:grid sm:grid-cols-12 gap-0 max-w-screen-xl mx-auto">
   <div class="px-8 sm:px-0 sm:col-start-2 sm:col-span-5 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-7 xl:col-start-1 xl:col-span-8">
-    <div class="mt-8 pb-4 mb-16 border-b flex justify-between">
-      <div class="flex space-x-2">
-        <div class="pb-2 border-b-2 border-kra-darkblue-lighter font-bold">Updates</div>
-        <span> &gt; </span>
-        <span> Event </span>
+
+    <!-- TODO: Updates & Events text below -->
+    <div class="mt-8 pb-4 mb-16 border-b flex justify-between items-center">
+      <div class="flex gap-x-4">
+        <div class="font-bold">Updates</div>
+        <span class="text-kra-blue">&gt;</span>
+        <span class="text-kra-darkblue-lighter">Event</span>
       </div>
-      <a class="text-xs rounded text-white bg-kra-blue px-2 py-1 items-center space-x-2 flex"
+
+      <a class="text-xs rounded text-white bg-kra-blue px-3 py-1 items-center gap-x-2 flex hover:bg-kra-blue-700 transition-colors"
          href="<%= resource.registration_link %>">
          <%= svg "/images/register.svg", class: "h-4 w-4" %>
          <span>Register</span>
       </a>
-
     </div>
+
+    <!-- Body content -->
     <div class="max-w-full prose">
       <% resource.content.each do |content| %>
         <%= render component_from_dato(content, {page: resource}) %>
       <% end %>
     </div>
   </div>
-  <div class="sm:col-start-8 sm:col-span-5 md:col-start-9
-                 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l
-                 border-t sm:border-t-0">
-    <div class="mt-8 px-4 border-b flex flex-col">
-      <div class="font-bold">Event Details</div>
-      <ul class="flex mt-10 space-x-4">
-        <li class="pb-2 border-b border-black font-bold text-black">Summary</li>
+
+
+  <!-- Side column-->
+  <div class="sm:col-start-8 sm:col-span-5 md:col-start-9 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l border-t sm:border-t-0">
+    <div class="mt-8 pb-4 px-6 border-b flex flex-col">
+      <div class="font-bold text-xl">Event Details</div>
+
+      <ul class="flex mt-4 -mb-4 gap-x-4 justify-start">
+        <li data-action="click->resource-tabs#click"
+            data-active="true"
+            data-resource-tabs-target="tab"
+            data-resource-tabs-tab-param="summary"
+            class="pb-2 border-b-2 border-kra-darkblue-light text-kra-darkblue-light
+                      data-[active='true']:border-black
+                      data-[active='true']:font-bold
+                      data-[active='true']:text-black
+                      ">Summary
+        </li>
       </ul>
     </div>
-    <div data-resource-tabs-target="tabContent" id="summary">
+
+    <!-- Summary tab content -->
+    <div data-resource-tabs-target="tabContent" id="summary" class="text-sm">
       <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Dates</span>
-        <div class="flex text-sm">
-          <span><%= resource.start_date.strftime("%B %d, %Y") %> </span>
-          <span class="<%= end_date? %>">&nbsp;-&nbsp;<%= resource.end_date&.strftime("%B %d, %Y") %> </span>
-      </div>
+        <div class="flex">
+          <span><%= resource.start_date.strftime("%b %d, %Y") %></span>
+          <span class="<%= end_date? %>">&nbsp; &mdash; &nbsp;<%= resource.end_date&.strftime("%b %d, %Y") %> </span>
+        </div>
       </div>
 
       <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Summary</span>
-        <div class="flex">
+        <div class="prose text-sm">
           <%= resource.abstract%>
         </div>
       </div>
+
       <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Location</span>
-        <div class="prose">
+        <div class="prose text-sm">
           <%= resource.address.html_safe %>
         </div>
-      </div> <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
+      </div>
+
+      <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Hosts</span>
-        <div class="flex space-x-2">
+        <div class="flex gap-x-2">
           <% resource.host.each do |org| %>
             <span class="rounded px-2 py-1 text-xs bg-kra-darkblue-lightest text-kra-darkblue-light">
               <%= org.title %>
