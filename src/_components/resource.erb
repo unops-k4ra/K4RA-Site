@@ -1,47 +1,52 @@
+<!-- Set up standard grid -->
 <div class="sm:grid sm:grid-cols-12 gap-0 max-w-screen-xl mx-auto">
   <div class="px-8 sm:px-0 sm:col-start-2 sm:col-span-5 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-7 xl:col-start-1 xl:col-span-8">
-    <div class="mt-8 pb-4 mb-16 border-b flex justify-between">
-      <div class="pb-2 border-b-2 border-kra-darkblue-lighter font-bold">Resources</div>
+
+
+    <!-- TODO: Resources -->
+    <div class="mt-8 pb-4 mb-16 border-b flex justify-between items-center">
+      <div class="flex gap-x-4">Resources</div>
       <%= render resource_action(resource) %>
     </div>
+
+    <!-- Body content -->
     <div class="max-w-full prose">
       <% resource.content.each do |content| %>
         <%= render component_from_dato(content, {page: resource}) %>
       <% end %>
     </div>
   </div>
-  <div data-controller="resource-tabs"
-       class="sm:col-start-8 sm:col-span-5 md:col-start-9
-                md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l
-                border-t sm:border-t-0">
-    <div class="mt-8 px-4 border-b flex flex-col">
-      <div class="font-bold">Resource metadata</div>
-      <ul class="flex mt-10 space-x-4">
+  <!-- Side column-->
+  <div class="sm:col-start-8 sm:col-span-5 md:col-start-9 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l border-t sm:border-t-0">
+    <div class="mt-8 pb-4 px-6 border-b flex flex-col">
+      <div class="font-bold text-xl">Resource metadata</div>
+
+      <ul class="flex mt-4 -mb-4 gap-x-4 justify-start text-sm">
         <li data-action="click->resource-tabs#click"
-            data-active="true"
-            data-resource-tabs-target="tab"
-            data-resource-tabs-tab-param="summary"
-            class="pb-2 text-kra-darkblue-lighter
-                      data-[active='true']:border-b
-                      data-[active='true']:border-black
-                      data-[active='true']:font-bold
-                      data-[active='true']:text-black
-                      ">
-                     Summary </li>
+           data-active="true"
+           data-resource-tabs-target="tab"
+           data-resource-tabs-tab-param="summary"
+           class="pb-2 border-transparent border-b-2 hover:border-kra-darkblue-light text-kra-darkblue-lighter hover:text-kra-darkblue-light transition-all
+                     data-[active='true']:border-black
+                     data-[active='true']:font-bold
+                     data-[active='true']:text-black
+                     ">Summary
+        </li>
         <li data-action="click->resource-tabs#click"
-            data-active="false"
-            data-resource-tabs-target="tab"
-            data-resource-tabs-tab-param="related"
-            class="pb-2 text-kra-darkblue-lighter
-                       data-[active='true']:border-b
-                       data-[active='true']:border-black
-                       data-[active='true']:font-bold
-                       data-[active='true']:text-black
-                       ">
-                       Related </li>
+           data-active="false"
+           data-resource-tabs-target="tab"
+           data-resource-tabs-tab-param="related"
+           class="pb-2 border-transparent border-b-2 hover:border-kra-darkblue-light text-kra-darkblue-lighter hover:text-kra-darkblue-light transition-all
+                     data-[active='true']:border-black
+                     data-[active='true']:font-bold
+                     data-[active='true']:text-black
+                     ">Related
+        </li>
       </ul>
     </div>
-    <div data-resource-tabs-target="tabContent" id="summary">
+
+    <!-- Summary tab content -->
+    <div data-resource-tabs-target="tabContent" id="summary" class="text-sm">
       <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Type</span>
         <div class="flex">
@@ -84,7 +89,7 @@
       <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
         <span class="font-bold">Date Uploaded</span>
         <div class="flex">
-          <span><%= resource.created_at.strftime("%B %d, %Y") %> </span>
+          <span><%= resource.created_at.strftime("%b %d, %Y") %> </span>
         </div>
       </div>
 

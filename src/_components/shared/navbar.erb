@@ -1,18 +1,18 @@
-<div class="<%= border_b %>  border-th-accent">
+<div class="<%= border_b %>  border-kra-darkblue-lightest">
   <nav class="items-center justify-between h-[84px] max-w-screen-xl px-4 mx-auto sm:px-6 flex">
     <a href="<%= relative_url "/" %>">
       <%= svg "/images/logo.svg", class: "#{hide_svg} aspect-[321/32] text-black max-w-[321px] w-full" %>
     </a>
     <div class="flex items-center justify-end space-x-4 ">
       <ul class="hidden items-center justify-end space-x-4 lg:flex <%= text_color %> ">
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>">About</a></li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>">About</a></li><!-- TODO -- Menu Adjustments -->
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li><!-- TODO -- Menu Adjustments -->
         <li class="relative">
           <div data-controller="dropdown" class="">
             <button data-dropdown-target="trigger" type="button"
                                                   class="hover:text-kra-blue inline-flex items-center justify-center whitespace-nowrap"
                                                   >
-                                                  <span class="mr-2">Beneficiaries</span>
+                                                  <span class="mr-2">Beneficiaries</span><!-- TODO -- Menu Adjustments -->
                                                   <%= svg '/images/menu_arrow.svg' %>
             </button>
             <div data-dropdown-target="container"
@@ -35,11 +35,12 @@
             </div>
           </div>
         </li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates' %>">Updates</a></li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities' %>">Opportunites</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates/all' %>">Updates</a></li><!-- TODO -- Menu Adjustments -->
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities/all' %>">Opportunites</a></li><!-- TODO -- Menu Adjustments -->
         <li class="text-gray-400">|</li>
       </ul>
 
+      <!-- TODO -- Menu does not link to right place -->
       <div data-controller="dropdown" class="flex items-center justify-end">
         <a href="https://k4ra.admin.datocms.com"
           class="px-4 py-2 rounded bg-kra-darkblue-lightest hover:bg-kra-darkblue-lighter text-kra-darkblue-lighter hover:text-kra-text transition-colors"

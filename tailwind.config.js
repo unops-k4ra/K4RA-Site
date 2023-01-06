@@ -41,32 +41,6 @@ module.exports = {
         },
       },
 
-      //Set background and border color
-      "th-bg":         'var(--color-bg)',
-      "th-border":     'var(--color-border)',
-
-      //Wells are used when you need to create a color variant
-      "th-well":       'var(--color-well)',
-
-      //Body fonts
-      "th-primary":    'var(--color-primary)',
-
-      //Headings or dividers
-      "th-secondary":  'var(--color-secondary)',
-
-      //Use this for links
-      "th-accent": 'var(--color-accent)',
-
-      //Use this to highlight important content
-      "th-highlight":   'var(--color-highlight)',
-
-      //Status colors
-      "th-error":       'var(--color-error)',
-      "th-alert":       'var(--color-alert)',
-      "th-info":        'var(--color-info)',
-      "th-success":     'var(--color-success)',
-
-
 
       kra2: {
         transparent:'transparent',

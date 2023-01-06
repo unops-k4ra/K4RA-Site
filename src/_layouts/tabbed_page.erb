@@ -1,0 +1,41 @@
+---
+layout: top_nav
+---
+<%= yield %>
+<div class="py-4">
+  <div class="
+    border-b
+    border-kra-darkblue-lightest
+
+    mb-8
+    flex
+    justify-center
+    overflow-x-auto
+
+    space-x-4
+    md:space-x-8
+    lg:space-x-10
+
+    text-sm
+    md:text-lg
+    lg:text-xl ">
+    <% tabs_for(resource).each_with_index do |tab, index| %>
+      <a
+          data-active="<%= tab.basename_without_ext.downcase == resource.basename_without_ext %>"
+          href="/<%= resource.data.dato_object.slug %>/<%=tab.basename_without_ext.downcase%>"
+          class="
+            py-4
+                   text-kra-darkblue-lighter
+                   hover:text-kra-darkblue-light
+                   data-[active='true']:border-b-2
+                   data-[active='true']:border-kra-text
+                   data-[active='true']:text-kra-text">
+                 <%= tab.basename_without_ext.titleize %>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="mx-auto max-w-screen-lg px-4">
+    <%= render component_from_data(resource, {data_source: resource.data.data_source} ) %>
+  </div>
+</div>

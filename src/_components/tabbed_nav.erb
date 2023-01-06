@@ -7,7 +7,7 @@
     flex
     justify-center
     overflow-x-auto
-    
+
     space-x-4
     md:space-x-8
     lg:space-x-10
@@ -16,33 +16,25 @@
     md:text-lg
     lg:text-xl
     ">
-    <% tabs.each_with_index do |tab, index| %>
+
+    <% resource.tabs.each_with_index do |tab, index| %>
       <a
-          data-active="<%= index == 0 %>"
-          data-tabbed-nav-target="tab"
-          data-action="tabbed-nav#click"
-          data-name="<%= tab.title.downcase.underscore %>"
-          data-tabbed-nav-index-param="<%= index %>"
-          href="#<%= tab.title.downcase.underscore %>"
+          data-active="<%= tab.active %>"
+          href="<%= tab_link(tab) %>"
           class="p-4
                  text-kra-darkblue-lighter
                  hover:text-kra-darkblue-light
                  data-[active='true']:border-b-2
                  data-[active='true']:border-kra-text
                  data-[active='true']:text-kra-text">
-                 <%= tab.title %>
+                 <%= tab_title(tab) %>
       </a>
     <% end %>
   </div>
 
-  <div class="m-auto w-1/2">
-    <% tabs.each_with_index do |tab, index| %>
-      <div data-active="<%= index == 0 %>"
-           data-tabbed-nav-target="tabContent"
-           data-index="<%= index %>"
-           class="hidden data-[active='true']:block">
-           <%= render component_from_dato(tab, options) %>
-      </div>
+  <div class="m-auto max-w-screen-xl px-4">
+    <% [].each_with_index do |tab, index| %>
+      <%= render component_from_dato(tab, options) %>
     <% end %>
   </div>
 </div>

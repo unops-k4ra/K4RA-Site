@@ -1,0 +1,93 @@
+<!-- Set up standard grid -->
+<div class="sm:grid sm:grid-cols-12 gap-0 max-w-screen-xl mx-auto">
+  <div class="px-8 sm:px-0 sm:col-start-2 sm:col-span-5 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-7 xl:col-start-1 xl:col-span-8">
+
+
+    <!-- TODO: Updates & News text below -->
+    <div class="mt-8 pb-4 mb-16 border-b flex justify-between items-center">
+      <div class="flex gap-x-4">
+        <div class="font-bold">Updates</div>
+        <span class="text-kra-blue">&gt;</span>
+        <span class="text-kra-darkblue-lighter">News</span>
+      </div>
+
+      <a class="<%= press_release? %> text-xs rounded text-white bg-kra-blue px-3 py-1 items-center gap-x-2 flex hover:bg-kra-blue-700 transition-colors"
+         href="<%= resource.press_release&.url %>">
+         <%= svg "/images/download.svg", class: "h-4 w-4" %>
+         <span>Download</span>
+      </a>
+
+    </div>
+
+    <!-- Body content -->
+    <div class="max-w-full prose">
+      <% resource.content.each do |content| %>
+        <%= render component_from_dato(content, {page: resource}) %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Side column-->
+  <div class="sm:col-start-8 sm:col-span-5 md:col-start-9 md:col-span-4 lg:col-start-10 lg:col-span-3 sm:border-l border-t sm:border-t-0">
+    <div class="mt-8 pb-4 px-6 border-b flex flex-col">
+      <div class="font-bold text-xl">News details</div>
+
+      <ul class="flex mt-4 -mb-4 gap-x-4 justify-start">
+        <li data-action="click->resource-tabs#click"
+            data-active="true"
+            data-resource-tabs-target="tab"
+            data-resource-tabs-tab-param="summary"
+            class="pb-2 border-b-2 border-kra-darkblue-light text-kra-darkblue-light
+                      data-[active='true']:border-black
+                      data-[active='true']:font-bold
+                      data-[active='true']:text-black
+                      ">Summary
+        </li>
+      </ul>
+    </div>
+
+    <!-- Summary tab content -->
+    <div data-resource-tabs-target="tabContent" id="summary" class="text-sm">
+      <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
+        <span class="font-bold">Date</span>
+        <div class="flex">
+          <span><%= resource.created_at.strftime("%b %d, %Y") %> </span>
+        </div>
+      </div>
+      <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
+          <% resource.author.each do |author| %>
+            <span class="font-bold"><%= author.title %></span>
+            <div class="flex">
+            <span class="prose text-sm">
+              <%= author.abstract %>
+            </span>
+            </div>
+          <% end %>
+      </div>
+
+
+      <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
+        <span class="font-bold">Beneficiary</span>
+        <div class="flex space-x-2">
+          <% resource.beneficiary.each do |beneficiary| %>
+            <span class="rounded px-2 py-1 text-xs bg-kra-darkblue-lightest text-kra-darkblue-light">
+              <%= beneficiary.iso3_code%>
+            </span>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="flex space-y-2 flex-col px-6 pt-4 pb-6 border-b">
+        <span class="font-bold">Keywords</span>
+        <div class="flex space-x-2">
+          <% resource.keywords.each do |keyword| %>
+            <span class="rounded px-2 py-1 text-xs bg-kra-darkblue-lightest text-kra-darkblue-light">
+              <%= keyword.title %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
