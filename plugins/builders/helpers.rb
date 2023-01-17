@@ -17,15 +17,7 @@ class Builders::Helpers < SiteBuilder
   end
 
   def meta_tags(resource)
-    dato_object = if resource.data.meta_type == :page
-                    resource.data.dato_object
-                  elsif resource.data.meta_type == :page
-                    resource.data.item
-                  elsif resource.basename_without_ext == "index"
-                    site.data.dato.home
-                  else
-                    return
-                  end
+    dato_object = resource.data.dato_object
 
     meta_tags = Dato::Utils::SeoTagsBuilder.new(dato_object, site.data.dato.site).meta_tags
     meta_tags.map do |data|
