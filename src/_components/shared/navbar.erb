@@ -37,13 +37,9 @@
         </li>
         <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates/all' %>">Updates</a></li>
         <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities/all' %>">Opportunites</a></li>
-        <li class="text-gray-400">|</li>
       </ul>
 
       <div data-controller="dropdown" class="flex items-center justify-end">
-        <a href="https://k4ra.admin.datocms.com"
-          class="px-4 py-2 rounded bg-kra-darkblue-lightest hover:bg-kra-darkblue-lighter text-kra-darkblue-lighter hover:text-kra-text transition-colors"
-          >Login</a>
         <button data-dropdown-target="trigger" class="px-4 lg:hidden self-stretch">
           <%= svg "/images/menu.svg", class:"h-4 w-4" %>
         </button>
