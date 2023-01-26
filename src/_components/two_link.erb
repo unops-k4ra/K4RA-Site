@@ -2,7 +2,7 @@
 <div class="max-w-screen-xl mx-auto mt-16 space-y-8 md:space-y-0 md:space-x-8 md:flex px-4 sm:px-6">
   <% resource.pages.each do |page| %>
     <div class="flex flex-col md:w-1/2 justify-items-start">
-      <div class="aspect-[2/1]" style="background-image: url('<%= page.small_hero&.url %>?auto=compress')"></div>
+      <div class="aspect-[2/1]" style="background-image: url('<%= page.small_hero&.url %>?fm=avif&auto=format,compress')"></div>
       <div class="flex flex-col justify-start pt-4 grow ">
         <h3 class="font-display font-bold text-3xl py-2"><%= page.title %></h3>
         <div class="grow prose">

@@ -1,5 +1,5 @@
 <div class="relative pt-4 w-full h-screen md:h-auto md:aspect-[9/7] lg:aspect-[9/6] lg:max-h-[60rem] bg-cover flex flex-col justify-center items-center bg-gray-600"
-  style="background-image:url('<%= dato.home.hero.url %>?auto=compress,format&fit=crop&w=1440&h=800&fp-x=<%= dato.home.hero.focal_point&.dig("x") %>&fp-y=<%= dato.home.hero.focal_point&.dig("y") %>')"
+  style="background-image:url('<%= dato.home.hero.url %>?fm=avif&auto=format,compress&fit=crop&w=1440&h=800&fp-x=<%= dato.home.hero.focal_point&.dig("x") %>&fp-y=<%= dato.home.hero.focal_point&.dig("y") %>')"
  >
 
   <div class="absolute inset-x-0 top-0">
@@ -25,7 +25,7 @@
     <%= svg "/images/kra_icon.svg", class: "w-1/3 h-full aspect-square" %>
   </div>
   <div class="absolute inset-x-0 bottom-0 flex items-end justify-center h-10 pb-6">
-    <a href="#next">
+    <a href="#next" title="Next">
       <%= svg "/images/chevron.svg", class: "text-white" %>
     </a>
   </div>
