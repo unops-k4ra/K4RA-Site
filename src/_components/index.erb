@@ -15,7 +15,7 @@
     <div class="flex justify-start max-w-md pt-4 pr-8 -mx-4">
       <% dato.global.inverse_logos.each do |image| %>
         <div class="px-4 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
-          <img class="w-full h-auto max-h-8" src="<%= image.url %>?fm=avif&auto=compress,format"  />
+          <img class="w-full h-auto max-h-8" src="<%= image.url %>?fm=svg&auto=format" alt="Project Sponsors" />
         </div>
       <% end %>
     </div>

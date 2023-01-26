@@ -8,7 +8,7 @@
         <div class="flex items-center space-x-4 lg:justify-end max-w-md pt-4">
           <% dato.global.principal_logos.each do |image| %>
             <div class="py-2 grow-0 shrink" style="aspect-ratio:<%= image.width %> / <%= image.height %>">
-              <img class="w-full h-auto max-h-8" src="<%= image.url %>"  />
+              <img class="w-full h-auto max-h-8" src="<%= image.url %>" alt="Project Sponsors" />
             </div>
           <% end %>
         </div>
