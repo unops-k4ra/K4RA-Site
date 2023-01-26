@@ -1,12 +1,12 @@
 <div class="<%= border_b %>  border-kra-darkblue-lightest">
   <nav class="items-center justify-between h-[84px] max-w-screen-xl px-4 mx-auto sm:px-6 flex">
-    <a href="<%= relative_url "/" %>">
+    <a href="<%= relative_url "/" %>" title="Knowledge for Reform Action">
       <%= svg "/images/logo.svg", class: "#{hide_svg} aspect-[321/32] text-black max-w-[321px] w-full" %>
     </a>
     <div class="flex items-center justify-end space-x-4 ">
       <ul class="hidden items-center justify-end space-x-4 lg:flex <%= text_color %> ">
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>">About</a></li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>" title="About">About</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/eu-acquis/clusters' %>" title="EU Acquis">EU Acquis</a></li>
         <li class="relative">
           <div data-controller="dropdown" class="">
             <button data-dropdown-target="trigger" type="button"
@@ -25,7 +25,7 @@
                   <ul class="space-y-4 text-sm">
                     <% dato.beneficiaries.each do |b| %>
                       <li class="border-b pb-4">
-                        <a class="text-kra-text hover:text-kra-blue" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                        <a class="text-kra-text hover:text-kra-blue" href="<%= relative_url "/beneficiaries/" + b.slug %>" title="<%= b.title %>"><%= b.title %></a>
                       </li>
                     <% end %>
                   </ul>
@@ -35,31 +35,31 @@
             </div>
           </div>
         </li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates/all' %>">Updates</a></li>
-        <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities/all' %>">Opportunites</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/updates/all' %>" title="Updates">Updates</a></li>
+        <li><a class="hover:text-kra-blue" href="<%= relative_url '/opportunities/all' %>" title="Opportunities">Opportunites</a></li>
       </ul>
 
       <div data-controller="dropdown" class="flex items-center justify-end">
-        <button data-dropdown-target="trigger" class="px-4 lg:hidden self-stretch">
+        <button data-dropdown-target="trigger" class="px-4 lg:hidden self-stretch" title="Mobile Menu">
           <%= svg "/images/menu.svg", class:"h-4 w-4" %>
         </button>
         <ul data-dropdown-target="container" class="hidden absolute inset-x-0 z-40 block pt-4 pb-6 bg-white lg:hidden top-[84px] text-kra-darkblue border-y border-kra-darkblue-lighter">
-          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/about' %>">About</a></li>
-          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/eu-acquis/clusters' %>">EU Acquis</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/about' %>" title="About">About</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/eu-acquis/clusters' %>" title="EU Acquis">EU Acquis</a></li>
           <li class="px-4 pt-2">
             <div class="">
               <div class="font-bold text-kra-darkblue-light">Beneficiaries</div>
               <ul class="pt-2">
                 <% dato.beneficiaries.each do |b| %>
                   <li>
-                    <a class="block px-4 py-2 italic" href="<%= relative_url "/beneficiaries/" + b.slug %>"><%= b.title %></a>
+                    <a class="block px-4 py-2 italic" href="<%= relative_url "/beneficiaries/" + b.slug %>" title="<%= b.title %>"><%= b.title %></a>
                   </li>
                 <% end %>
               </ul>
             </div>
           </li>
-          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/updates/all' %>">Updates</a></li>
-          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/opportunities/all' %>">Opportunites</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/updates/all' %>" title="Updates">Updates</a></li>
+          <li><a class="block px-4 py-2 font-bold" href="<%= relative_url '/opportunities/all' %>" title="Opportunities">Opportunites</a></li>
         </ul>
       </div>
     </div>
