@@ -7,4 +7,9 @@ class TwoLink < Bridgetown::Component
     @resource, @options = resource, options
     super()
   end
+
+  def page_slug(page)
+    page.slug unless page.slug == "eq-acquis"
+    "#{page.slug}/clusters"
+  end
 end
