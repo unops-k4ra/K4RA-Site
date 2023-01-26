@@ -25,6 +25,21 @@ class Builders::LoadPages < SiteBuilder
       content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
     end
 
+    add_resource :pages, "/eu-acquis.erb" do
+      content <<~HTML
+        <!DOCTYPE html>
+        <html>
+           <head>
+              <title>HTML Meta Tag</title>
+              <meta http-equiv="refresh" content="0;url=/eu-acquis/clusters" />
+           </head>
+           <body>
+            <a href="/eu-acquis/clusters">Redirect</a>
+           </body>
+        </html>
+      HTML
+    end
+
     site.data.dato.eu_acquis_chapters.each do |chapter|
       add_resource :pages, "/#{page.slug}/#{chapter.slug}.erb" do
         title chapter.title

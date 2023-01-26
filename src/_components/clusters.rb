@@ -6,7 +6,7 @@ class Clusters < Bridgetown::Component
   def initialize(resource:, options:)
     @resource, @options = resource, options
     @site = Bridgetown::Current.site
-    @clusters = @site.data.dato.send("eu_acquis_#{resource.basename_without_ext}")
+    @clusters = @site.data.dato.send("eu_acquis_#{resource.data.active_page}")
     super()
   end
 end
