@@ -3,7 +3,7 @@
     <% grid_items.each do |item| %>
     <a href="/beneficiaries/<%= item.slug %>" class="group relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
                   content-center text-white bg-cover"
-         style="background-image: url('<%= item.hero.url %>?auto=compress')" >
+         style="background-image: url('<%= item.hero.url %>?fm=avif&auto=format&auto=compress')" >
       <div class="absolute inset-0 bg-black opacity-30 group-hover:opacity-50 group-hover:bg-kra-blue transition-all"></div>
       <span class="z-10 text-center group-hover:scale-110 transition-transform"><%= item.title %></span>
     </a>

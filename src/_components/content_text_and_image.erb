@@ -6,7 +6,7 @@
       <div class="prose"><%= resource.content.html_safe %></div>
     </div>
     <div class="md:w-1/2">
-      <img class="aspect-square" src="<%= resource.image.url %>?auto=compress,format&fit=crop&w=720&h=720&fp-x=<%= resource.image.focal_point&.dig("x") %>&fp-y=<%= resource.image.focal_point&.dig("y") %>"/>
+      <img class="aspect-square" src="<%= resource.image.url %>?fm=avif&auto=compress,format&fit=crop&w=720&h=720&fp-x=<%= resource.image.focal_point&.dig("x") %>&fp-y=<%= resource.image.focal_point&.dig("y") %>"/>
     </div>
   </div>
 
