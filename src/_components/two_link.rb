@@ -9,8 +9,12 @@ class TwoLink < Bridgetown::Component
   end
 
   def page_slug(page)
-    return page.slug unless page.slug == "eq-acquis"
-
-    "#{page.slug}/clusters"
+    if page.slug == "eu-acquis"
+      return "#{page.slug}/clusters"
+    elsif page.slug == "opportunities"
+      return "#{page.slug}/all"
+    else
+      return page.slug
+    end
   end
 end
