@@ -2,7 +2,7 @@
   <div class="grid content-center w-full max-w-4xl grid-cols-2 gap-0 px-4 m-auto sm:px-6 sm:grid-cols-3 justify-items-center">
     <% grid_items.each do |item| %>
     <a href="/beneficiaries/<%= item.slug %>" class="group relative w-full aspect-[280/157] grid grid-col-1 justify-items-center
-                  content-center text-white bg-cover"
+                  content-center text-white bg-cover grayscale"
          style="background-image: url('<%= item.hero.url %>?fm=avif&auto=format,compress')" >
       <div class="absolute inset-0 bg-black opacity-30 group-hover:opacity-50 group-hover:bg-kra-blue transition-all"></div>
       <span class="z-10 text-center group-hover:scale-110 transition-transform"><%= item.title %></span>
