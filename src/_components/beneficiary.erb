@@ -7,7 +7,7 @@
          <h1 class="text-7xl text-white text-left w-full font-display"> <%= resource.title %> </h1>
          <% if resource.abstract.present? %>
            <hr class="border-none w-[68px] h-1 bg-kra-blue-100 my-6"/>
-           <p class="text-white text-2xl"> <%= resource.abstract.html_safe %> <p>
+           <p class="text-white text-2xl"> <%= resource.abstract %> <p>
          <% end %>
     </div>
     <div class="col-span-1 -ml-px -mt-px z-0">
