@@ -15,4 +15,5 @@ class ContentImage < Bridgetown::Component
       "right" => "justify-end",
     }.fetch(resource.align)
   end
+  
 end
