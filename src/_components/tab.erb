@@ -1,7 +1,7 @@
 <div class="border-b-4 border-kra-darkblue-lighter pb-4 text-xl font-bold">
   <%= resource.data.title.titleize %>
 </div>
-<% items.order(:item.date).each do |item| %>
+<% items.sort_by(&:date).each do |item| %>
   <div class="flex items-center" style="border-left: 12px <%= resource.data.color %> solid">
     <a href="<%= relative_url item.slug %>"
        class="
