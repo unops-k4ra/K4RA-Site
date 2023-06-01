@@ -2,7 +2,7 @@
   <img src="<%= resource.image.url%>?fm=avif&auto=format&auto=compress" alt="<%= resource.caption.html_safe %>"/>
   <figcaption class="text-sm italic text-kra-darkblue-light">
     <% if resource.caption %>
-      <%= resource.caption.html_safe %>
+      <%= resource.caption %>
     <% end %>
   </figcaption>
 </div>
