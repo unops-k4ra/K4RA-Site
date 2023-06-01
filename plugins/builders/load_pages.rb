@@ -61,17 +61,17 @@ class Builders::LoadPages < SiteBuilder
       content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
     end
 
-    add_resource :pages, "/#{page.slug}/events.erb" do
-      title "Events"
-      color "#4DB3DF"
-      dato_object page
-      active_page "events"
-      tab_component "tab"
-      data_source "event"
-      meta_type "updates"
-      layout "tabbed_page"
-      content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
-    end
+#    add_resource :pages, "/#{page.slug}/events.erb" do
+#      title "Events"
+#      color "#4DB3DF"
+#      dato_object page
+#      active_page "events"
+#      tab_component "tab"
+#      data_source "event"
+#      meta_type "updates"
+#      layout "tabbed_page"
+#      content "<%= render Page.new(resource: resource.data.dato_object, options: {}) %>"
+#    end
 
     site.data.dato.updates.each do |update|
       add_resource :pages, "/#{update.slug}.erb" do
@@ -86,18 +86,18 @@ class Builders::LoadPages < SiteBuilder
       end
     end
 
-    site.data.dato.events.each do |event|
-      add_resource :pages, "/#{event.slug}.erb" do
-        title event.title
-        meta_type "event"
-        dato_object event
-        layout "top_nav"
-        content "<%= render Event.new(
-                                resource: resource.data.dato_object,
-                                options: {})
-                  %>"
-      end
-    end
+#    site.data.dato.events.each do |event|
+#      add_resource :pages, "/#{event.slug}.erb" do
+#        title event.title
+#        meta_type "event"
+#        dato_object event
+#        layout "top_nav"
+#        content "<%= render Event.new(
+#                                resource: resource.data.dato_object,
+#                                options: {})
+#                  %>"
+#      end
+#    end
   end
 
   def closed_opportunity?(opportunity)
