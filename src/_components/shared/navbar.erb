@@ -1,9 +1,9 @@
-<div class="<%= border_b %>  border-kra-darkblue-lightest">
-  <nav class="items-center justify-between h-[84px] max-w-screen-xl px-4 mx-auto sm:px-6 flex">
+<div class="<%= border_b %>  border-kra-darkblue-lightest bg-white lg:bg-transparent">
+  <nav class="items-center justify-between h-[84px] max-w-screen-2xl px-4 mx-auto sm:px-6 flex">
     <a href="<%= relative_url "/" %>" title="Knowledge for Reform Action">
-      <%= svg "/images/logo.svg", class: "#{hide_svg} aspect-[321/32] text-black max-w-[321px] w-full" %>
+      <%= svg "/images/logo.svg", class: "lg:#{hide_svg} aspect-[321/32] text-black max-w-[321px] w-full" %>
     </a>
-    <div class="flex items-center justify-end space-x-4 ">
+    <div class="flex items-center justify-end gap-x-4 ">
       <ul class="hidden items-center justify-end space-x-4 lg:flex <%= text_color %> ">
         <li><a class="hover:text-kra-blue" href="<%= relative_url '/about' %>" title="About">About</a></li>
         <li><a class="hover:text-kra-blue" href="<%= relative_url '/project-strategy' %>" title="Project strategy">Project strategy</a></li>

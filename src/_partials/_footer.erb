@@ -1,6 +1,6 @@
 <footer>
   <div class="border-kra-darkblue-lightest border-y">
-    <div class="max-w-screen-xl px-4 xl:px-0 mx-auto divide-y divide-kra-darkblue-lightest">
+    <div class="max-w-screen-2xl px-4 xl:px-0 mx-auto divide-y divide-kra-darkblue-lightest">
       <div class="md:flex items-center justify-between py-8 gap-x-8 ">
     <a href="<%= relative_url "/" %>">
       <%= svg "/images/logo.svg", class: "aspect-[321/32] text-black max-w-[321px] w-full" %>
@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="max-w-screen-xl mx-auto md:flex py-6 px-4 xl:px-0 border-kra-darkblue-lightest border-t">
+    <div class="max-w-screen-2xl mx-auto md:flex py-6 px-4 xl:px-0 border-kra-darkblue-lightest border-t">
       <p class="order-2 md:order-1 pb-4 md:pb-0 text-sm text-kra-darkblue-lighter grow"><%= dato.global.copyright.gsub("{{YEAR}}", Date.today.year.to_s)%></p>
       <div class="order-1 md:order-2 xl:flex space-x-4 text-sm">
         <a class="underline text-kra-darkblue-lighter
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="max-w-screen-xl pt-6 pb-6 mx-auto px-4 xl:px-0">
+  <div class="max-w-screen-2xl pt-6 pb-6 mx-auto px-4 xl:px-0">
     <p class="text-sm italic text-kra-darkblue-lighter"><%= dato.global.kosovo_declaration %></p>
   </div>
 </footer>
