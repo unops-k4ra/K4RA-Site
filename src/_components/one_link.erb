@@ -9,11 +9,27 @@
         href="<%= relative_url resource.page.slug %>">Read More</a>
       </div>
     </div>
-    <div class="relative w-full">
-      <img class="w-full aspect-[470/352]" src="<%= resource.page.hero.url %>?fm=avif&auto=compress,format" alt="Branded image">
-      <div class="absolute inset-0">
-      <%= svg "/images/img-frame.svg", style: "color:#{resource.background_color.hex}" %>
-      </div>
+    <% if resource.media_type %>
+     <div class="relative w-full">
+        <img class="w-full aspect-[470/352]" src="<%= resource.page.hero.url %>?fm=avif&auto=compress,format" alt="Branded image">
+        <div class="absolute inset-0">
+          <%= svg "/images/img-frame.svg", style: "color:#{resource.background_color.hex}" %>
+        </div>
     </div>
+    <% else %>
+      <div class="relative w-full">
+        <% if !resource.page.video_block.nil? && resource.page.video_block.length() > 0 %>
+          <div class="aspect-[16/9] relative h-auto w-full rounded overflow-hidden">
+            <iframe
+              class="absolute top-0 left-0 w-full h-full"
+              src="<%= resource.page.video_block[0].video %>"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              frameborder="0"
+              allowfullscreen
+              ></iframe>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
